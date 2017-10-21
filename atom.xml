@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title><![CDATA[Fnoz Blog]]></title>
-  <subtitle><![CDATA[iOS & Blog & Web]]></subtitle>
+  <subtitle><![CDATA[iOS & Web]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
   <updated>2017-02-09T04:17:19.000Z</updated>
