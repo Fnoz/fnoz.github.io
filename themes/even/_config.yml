@@ -1,0 +1,39 @@
+# navbar
+menu:
+  Home: /
+  Archives: /archives/
+  About: /about/
+#  Archives: /archives/
+#  Tags: /tags/
+
+# site icon
+favicon: /favicon.png
+
+# comments
+comments:
+  post: true
+  about: true
+
+# Analytics
+## Baidu Analytics
+baidu_analytics: 142d7bfecd21e121cf0407f5e8e198af
+## Google Analytics
+# google_analytics: UA-74273646-1
+
+# Comments
+## Duoshuo
+# duoshuo_shortname: ahonn
+## Disqus
+# disqus_shortname: ahonn
+
+# Social links
+social:
+  github: https://github.com/fnoz
+  weibo: http://weibo.com/fnoz
+  twitter: https://twitter.com/FnozCN
+  rss: /atom.xml
+#  email: mailto:fnoz@sina.com
+# stack-overflow:
+# twitter:
+# facebook:
+# zhihu:

@@ -1,0 +1,49 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="description" content="Fnoz’s Blog on iOS Dev,Web,Blog"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Swift 写了一个 iOS 路由框架 FNUrlRoute · Fnoz Blog</title><link rel="short icon" href="/favicon.png"><!-- font--><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Roboto Mono"><!-- icon--><link rel="stylesheet" href="/fonts/iconfont/iconfont.css"><!-- theme style--><link rel="stylesheet" href="/css/style.css"><!-- baidu analytics--><script type="text/javascript">var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?142d7bfecd21e121cf0407f5e8e198af";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script></head><body><div id="main"><header><a href="/." class="logo">Fnoz Blog</a><ul class="nav"><li class="nav-link"><a href="/" target="_self">首页</a></li><li class="nav-link"><a href="/archives/" target="_self">文章</a></li><li class="nav-link"><a href="/about/" target="_self">关于</a></li></ul></header><section id="container"><article class="post"><h1 class="post-title">Swift 写了一个 iOS 路由框架 FNUrlRoute</h1><span class="post-time">2016年11月4日</span><div class="post-content"><p>Swift 路由框架：iOS 基于页面、模块的路由框架，解耦神器。 </p>
+<p>开源在<a href="https://github.com/Fnoz/FNUrlRoute" target="_blank" rel="external">这里</a>。</p>
+<p>用 FNUrlRoute，可以用来解耦模块，使得模块之前的调用独立开来，举个简单的例子，你在 VC、Model 或者 Cell 中直接调用类似<code>Open(xxxPage)</code> 的方式直接打开一个页面（或者唤起一个模块），从而减少代码的冗余。</p>
+<p>另外还有一个神用途：比如Banner的跳转问题，只要跳转链接遵循规则，运营想跳什么页面，配对应的urlRoute链接就行了。</p>
+<p>如果这样说不够直观，直接上 Demo 来描述。</p>
+<a id="more"></a>
+<h3 id="简单的例子">简单的例子</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">FN.<span class="function"><span class="title">open</span><span class="params">(url: <span class="string">"xxx://yyy/goodDetail?goodId=123"</span>)</span></span></span><br><span class="line">FN.<span class="function"><span class="title">open</span><span class="params">(url: <span class="string">"xxx://yyy/shopDetail?shopId=456"</span>, modal:true, params:[<span class="string">"shopId"</span>: <span class="string">"123"</span> as AnyObject])</span></span></span><br><span class="line">FN.<span class="function"><span class="title">open</span><span class="params">(url: <span class="string">"http://www.baidu.com/shopDetail.html?shopId=123"</span>)</span></span></span><br><span class="line">FN.<span class="function"><span class="title">open</span><span class="params">(url: <span class="string">"xxx://yyy/login"</span>)</span></span></span><br><span class="line">FN.<span class="function"><span class="title">open</span><span class="params">(url: <span class="string">"http://www.weidian.com"</span>)</span></span></span><br></pre></td></tr></table></figure>
+<div align="center" display="inline" float="left"><img width="40%" src="http://7xl2dx.com1.z0.glb.clouddn.com/fnur_all.png" alt=""></div>
+
+<p>点击对应 cell 分别执行上面的代码，效果如下：</p>
+<div align="center" display="inline" float="left"><img width="33%" src="http://7xl2dx.com1.z0.glb.clouddn.com/fnur_00.gif" alt=""><img width="33%" src="http://7xl2dx.com1.z0.glb.clouddn.com/fnur_01.gif" alt=""></div>
+
+<div align="center" display="inline" float="left"><img width="33%" src="http://7xl2dx.com1.z0.glb.clouddn.com/fnur_02.gif" alt=""><img width="33%" src="http://7xl2dx.com1.z0.glb.clouddn.com/fnur_03.gif" alt=""></div>
+
+<div align="center" display="inline" float="left"><img width="33%" src="http://7xl2dx.com1.z0.glb.clouddn.com/fnur_04.gif" alt=""></div>
+
+<h3 id="为了用上_FNUrlRoute，你需要做的事">为了用上 FNUrlRoute，你需要做的事</h3><p>1、引入代码，代码引用或者 pod 引用</p>
+<p>2、在<code>didFinishLaunch</code>中初始化，like this：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">FNUrlRoute.initUrlRoute(dictionary: [<span class="string">"yyy/goodDetail"</span>: GoodDetailViewController<span class="class">.self</span>,</span><br><span class="line">                                     <span class="string">"yyy/shopDetail"</span>: ShopDetailViewController<span class="class">.self</span>,</span><br><span class="line">                                     <span class="string">"www.baidu.com/shopDetail.html"</span>: ShopDetailViewController<span class="class">.self</span>,</span><br><span class="line">                                     <span class="string">"yyy/login"</span>: LoginModule.self])</span><br></pre></td></tr></table></figure>
+<p>3、你也可以另外新增和删除对应的模块，like this：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">FNUrlRoute.<span class="function"><span class="title">register</span><span class="params">(key: <span class="string">"yyy/login"</span>, module: LoginModule.self)</span></span></span><br><span class="line">FNUrlRoute.<span class="function"><span class="title">remove</span><span class="params">(key: <span class="string">"yyy/login"</span>)</span></span></span><br></pre></td></tr></table></figure>
+<p>4、让你的模块（比如<code>ShopDetailViewController</code>），遵守<code>FNUrlRouteDelegate</code>协议，并实现<code>init(params: [String: AnyObject]?)</code>方法，同时你可以在这里拿到<code>FN.open(url:params:)</code>时传入的参数。</p>
+<p>5、在任意地方，调用<code>FN.open</code>以唤起你的模块，like this：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FN.<span class="function"><span class="title">open</span><span class="params">(url: <span class="string">"xxx://yyy/goodDetail?goodId=123"</span>)</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="需要了解的一些逻辑">需要了解的一些逻辑</h3><p>1、注册（初始化）时，对应的 <code>key</code> 为 <code>url</code> 的 <code>host</code> + <code>path</code>，比如<code>http://www.baidu.com/shopDetail.html?shopId=123</code>，<code>key</code>应该为<code>www.baidu.com/shopDetail.html</code>，<code>url</code>的<code>scheme</code>我是不 care 的，这个只是为了让你处理app间跳转方便，调用<code>open(url)</code>时没有<code>scheme</code>也是可以唤起的。</p>
+<p>2、如果有<code>navigationController</code>，并且<code>modal</code>为<code>false</code>，则<code>push</code>页面，否则<code>present</code>（<code>modal</code>形式弹出）</p>
+<p>3、url中如果有参数，最后会传到params中，如果有同key的key-value，以params中为准</p>
+<h3 id="一些自问自答">一些自问自答</h3><p><strong>问 1：初始化的时候，为什么不采用直接文件（比如 plist）读取呢？</strong></p>
+<p><strong>答：</strong>常会有同学对模块进行改名，比如<code>ShopDetailViewController</code> -&gt; <code>FNShopDetailViewController</code>，结果文件里忘记改了，结果就坑了。虽然这样麻烦点，但是在编译时就发现问题。</p>
+<p><strong>问 2：类似下面这种用法，怎么在对应模块里拿到params？</strong></p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FN.open(<span class="string">url:</span> <span class="string">"xxx://yyy/shopDetail?shopId=456"</span>, <span class="string">modal:</span><span class="literal">true</span>, <span class="string">params:</span>[<span class="string">"shopId"</span>: <span class="string">"123"</span> <span class="keyword">as</span> AnyObject])</span><br></pre></td></tr></table></figure>
+<p><strong>答：</strong>模块遵守<code>FNUrlRouteDelegate</code>协议，并实现<code>init(params: [String: AnyObject]?)</code>方法，同时你可以在这里拿到<code>FN.open(url:params:)</code>时传入的参数。</p>
+<p><strong>问 3：如果 url 里面本身就有参数，会怎么样？</strong></p>
+<p><strong>答：</strong>如果 url 里有query，会取出来，放到params中传入页面，这样做的好处是，你可以通过选择合适的key，使用<code>http://www.baidu.com/shopDetail.html?shopId=123</code>直接打开一个<code>ShopDetailViewController</code>。</p>
+<p><strong>问 4：如果 url 没有匹配到任意模块，会怎么样？</strong></p>
+<p><strong>答：</strong>没有匹配到模块，默认是会用<code>SFSafariViewController</code>打开一个 web 页面，如果你想用另外的处理方式，重写一下<code>HandleOverBlock</code>就行了，like this：</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FNUrlRoute.setHandleOverBlock &#123; (url, modal, <span class="keyword">params</span>) <span class="keyword">in</span></span><br><span class="line">	<span class="comment">//your handle          </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="关于Pod引用">关于Pod引用</h3><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod <span class="string">'FNUrlRoute'</span>, :git =&gt; <span class="string">'git@github.com:Fnoz/FNUrlRoute.git'</span>, :tag =&gt; <span class="string">'1.0.0'</span></span><br></pre></td></tr></table></figure>
+<p>###TODO</p>
+<p>1、<code>url</code> 中如果含有需要 <code>urlEncode</code> 的，暂时还没处理</p>
+<p>2、用于切换<code>tabController</code>的参数</p>
+</div></article><div class="tags"><a href="/tags/Project/">Project</a><a href="/tags/iOS/">iOS</a></div><div class="paginator"><a href="/2017/01/18/2017-01-18-01/" class="prev"><i class="iconfont icon-left"></i><span> 上一页</span></a><a href="/2016/08/19/2016-08-19-01/" class="next"><span>下一页</span><i class="iconfont icon-right"></i></a></div></section><footer><div class="copyright"><p>&copy;2017<span class="heart"><i class="iconfont icon-heart"></i></span><span class="author">Fnoz</span></p></div><label id="back2top"><i class="iconfont icon-up"></i></label></footer></div></body><script src="/js/back2top.js"></script></html>

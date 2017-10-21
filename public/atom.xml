@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[Fnoz Blog]]></title>
+  <subtitle><![CDATA[iOS & Blog & Web]]></subtitle>
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://yoursite.com/"/>
+  <updated>2017-02-09T04:17:19.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name><![CDATA[Fnoz]]></name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[写了图床 App Picly]]></title>
+    <link href="http://yoursite.com/2017/01/18/2017-01-18-01/"/>
+    <id>http://yoursite.com/2017/01/18/2017-01-18-01/</id>
+    <published>2017-01-17T16:00:00.000Z</published>
+    <updated>2017-02-09T04:17:19.000Z</updated>
+    <content type="html"><![CDATA[<p>Mac 上有 iPic 这类图床 App，现在很多人写文章都用手机了，所以我写了一个 iOS 图床 App Picly。</p>
+<p>为了方便，上传服务基于七牛，App 下载地址在<a href="https://itunes.apple.com/us/app/picly-mei-hao-de-tu-chuang/id1192997043?mt=8" target="_blank" rel="external">这里</a></p>
+<p><img src="http://7xl2dx.com1.z0.glb.clouddn.com/fnozblog_picly_preview.png" alt=""></p>
+<a id="more"></a>]]></content>
+    <summary type="html">
+    <![CDATA[<p>Mac 上有 iPic 这类图床 App，现在很多人写文章都用手机了，所以我写了一个 iOS 图床 App Picly。</p>
+<p>为了方便，上传服务基于七牛，App 下载地址在<a href="https://itunes.apple.com/us/app/picly-mei-hao-de-tu-chuang/id1192997043?mt=8">这里</a></p>
+<p><img src="http://7xl2dx.com1.z0.glb.clouddn.com/fnozblog_picly_preview.png" alt=""></p>]]>
+    
+    </summary>
+    
+      <category term="Project" scheme="http://yoursite.com/tags/Project/"/>
+    
+      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Swift 写了一个 iOS 路由框架 FNUrlRoute]]></title>
+    <link href="http://yoursite.com/2016/11/04/2016-11-04-01/"/>
+    <id>http://yoursite.com/2016/11/04/2016-11-04-01/</id>
+    <published>2016-11-03T16:00:00.000Z</published>
+    <updated>2016-11-06T09:10:32.000Z</updated>
+    <content type="html"><![CDATA[<p>Swift 路由框架：iOS 基于页面、模块的路由框架，解耦神器。 </p>
+<p>开源在<a href="https://github.com/Fnoz/FNUrlRoute" target="_blank" rel="external">这里</a>。</p>
+<p>用 FNUrlRoute，可以用来解耦模块，使得模块之前的调用独立开来，举个简单的例子，你在 VC、Model 或者 Cell 中直接调用类似<code>Open(xxxPage)</code> 的方式直接打开一个页面（或者唤起一个模块），从而减少代码的冗余。</p>
+<p>另外还有一个神用途：比如Banner的跳转问题，只要跳转链接遵循规则，运营想跳什么页面，配对应的urlRoute链接就行了。</p>
+<p>如果这样说不够直观，直接上 Demo 来描述。</p>
+<a id="more"></a>
+<h3 id="简单的例子">简单的例子</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">FN.<span class="function"><span class="title">open</span><span class="params">(url: <span class="string">"xxx://yyy/goodDetail?goodId=123"</span>)</span></span></span><br><span class="line">FN.<span class="function"><span class="title">open</span><span class="params">(url: <span class="string">"xxx://yyy/shopDetail?shopId=456"</span>, modal:true, params:[<span class="string">"shopId"</span>: <span class="string">"123"</span> as AnyObject])</span></span></span><br><span class="line">FN.<span class="function"><span class="title">open</span><span class="params">(url: <span class="string">"http://www.baidu.com/shopDetail.html?shopId=123"</span>)</span></span></span><br><span class="line">FN.<span class="function"><span class="title">open</span><span class="params">(url: <span class="string">"xxx://yyy/login"</span>)</span></span></span><br><span class="line">FN.<span class="function"><span class="title">open</span><span class="params">(url: <span class="string">"http://www.weidian.com"</span>)</span></span></span><br></pre></td></tr></table></figure>
+<div align="center" display="inline" float="left"><img width="40%" src="http://7xl2dx.com1.z0.glb.clouddn.com/fnur_all.png" alt=""></div>
+
+<p>点击对应 cell 分别执行上面的代码，效果如下：</p>
+<div align="center" display="inline" float="left"><img width="33%" src="http://7xl2dx.com1.z0.glb.clouddn.com/fnur_00.gif" alt=""><img width="33%" src="http://7xl2dx.com1.z0.glb.clouddn.com/fnur_01.gif" alt=""></div>
+
+<div align="center" display="inline" float="left"><img width="33%" src="http://7xl2dx.com1.z0.glb.clouddn.com/fnur_02.gif" alt=""><img width="33%" src="http://7xl2dx.com1.z0.glb.clouddn.com/fnur_03.gif" alt=""></div>
+
+<div align="center" display="inline" float="left"><img width="33%" src="http://7xl2dx.com1.z0.glb.clouddn.com/fnur_04.gif" alt=""></div>
+
+<h3 id="为了用上_FNUrlRoute，你需要做的事">为了用上 FNUrlRoute，你需要做的事</h3><p>1、引入代码，代码引用或者 pod 引用</p>
+<p>2、在<code>didFinishLaunch</code>中初始化，like this：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">FNUrlRoute.initUrlRoute(dictionary: [<span class="string">"yyy/goodDetail"</span>: GoodDetailViewController<span class="class">.self</span>,</span><br><span class="line">                                     <span class="string">"yyy/shopDetail"</span>: ShopDetailViewController<span class="class">.self</span>,</span><br><span class="line">                                     <span class="string">"www.baidu.com/shopDetail.html"</span>: ShopDetailViewController<span class="class">.self</span>,</span><br><span class="line">                                     <span class="string">"yyy/login"</span>: LoginModule.self])</span><br></pre></td></tr></table></figure>
+<p>3、你也可以另外新增和删除对应的模块，like this：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">FNUrlRoute.<span class="function"><span class="title">register</span><span class="params">(key: <span class="string">"yyy/login"</span>, module: LoginModule.self)</span></span></span><br><span class="line">FNUrlRoute.<span class="function"><span class="title">remove</span><span class="params">(key: <span class="string">"yyy/login"</span>)</span></span></span><br></pre></td></tr></table></figure>
+<p>4、让你的模块（比如<code>ShopDetailViewController</code>），遵守<code>FNUrlRouteDelegate</code>协议，并实现<code>init(params: [String: AnyObject]?)</code>方法，同时你可以在这里拿到<code>FN.open(url:params:)</code>时传入的参数。</p>
+<p>5、在任意地方，调用<code>FN.open</code>以唤起你的模块，like this：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FN.<span class="function"><span class="title">open</span><span class="params">(url: <span class="string">"xxx://yyy/goodDetail?goodId=123"</span>)</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="需要了解的一些逻辑">需要了解的一些逻辑</h3><p>1、注册（初始化）时，对应的 <code>key</code> 为 <code>url</code> 的 <code>host</code> + <code>path</code>，比如<code>http://www.baidu.com/shopDetail.html?shopId=123</code>，<code>key</code>应该为<code>www.baidu.com/shopDetail.html</code>，<code>url</code>的<code>scheme</code>我是不 care 的，这个只是为了让你处理app间跳转方便，调用<code>open(url)</code>时没有<code>scheme</code>也是可以唤起的。</p>
+<p>2、如果有<code>navigationController</code>，并且<code>modal</code>为<code>false</code>，则<code>push</code>页面，否则<code>present</code>（<code>modal</code>形式弹出）</p>
+<p>3、url中如果有参数，最后会传到params中，如果有同key的key-value，以params中为准</p>
+<h3 id="一些自问自答">一些自问自答</h3><p><strong>问 1：初始化的时候，为什么不采用直接文件（比如 plist）读取呢？</strong></p>
+<p><strong>答：</strong>常会有同学对模块进行改名，比如<code>ShopDetailViewController</code> -&gt; <code>FNShopDetailViewController</code>，结果文件里忘记改了，结果就坑了。虽然这样麻烦点，但是在编译时就发现问题。</p>
+<p><strong>问 2：类似下面这种用法，怎么在对应模块里拿到params？</strong></p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FN.open(<span class="string">url:</span> <span class="string">"xxx://yyy/shopDetail?shopId=456"</span>, <span class="string">modal:</span><span class="literal">true</span>, <span class="string">params:</span>[<span class="string">"shopId"</span>: <span class="string">"123"</span> <span class="keyword">as</span> AnyObject])</span><br></pre></td></tr></table></figure>
+<p><strong>答：</strong>模块遵守<code>FNUrlRouteDelegate</code>协议，并实现<code>init(params: [String: AnyObject]?)</code>方法，同时你可以在这里拿到<code>FN.open(url:params:)</code>时传入的参数。</p>
+<p><strong>问 3：如果 url 里面本身就有参数，会怎么样？</strong></p>
+<p><strong>答：</strong>如果 url 里有query，会取出来，放到params中传入页面，这样做的好处是，你可以通过选择合适的key，使用<code>http://www.baidu.com/shopDetail.html?shopId=123</code>直接打开一个<code>ShopDetailViewController</code>。</p>
+<p><strong>问 4：如果 url 没有匹配到任意模块，会怎么样？</strong></p>
+<p><strong>答：</strong>没有匹配到模块，默认是会用<code>SFSafariViewController</code>打开一个 web 页面，如果你想用另外的处理方式，重写一下<code>HandleOverBlock</code>就行了，like this：</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FNUrlRoute.setHandleOverBlock &#123; (url, modal, <span class="keyword">params</span>) <span class="keyword">in</span></span><br><span class="line">	<span class="comment">//your handle          </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="关于Pod引用">关于Pod引用</h3><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod <span class="string">'FNUrlRoute'</span>, :git =&gt; <span class="string">'git@github.com:Fnoz/FNUrlRoute.git'</span>, :tag =&gt; <span class="string">'1.0.0'</span></span><br></pre></td></tr></table></figure>
+<p>###TODO</p>
+<p>1、<code>url</code> 中如果含有需要 <code>urlEncode</code> 的，暂时还没处理</p>
+<p>2、用于切换<code>tabController</code>的参数</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Swift 路由框架：iOS 基于页面、模块的路由框架，解耦神器。 </p>
+<p>开源在<a href="https://github.com/Fnoz/FNUrlRoute">这里</a>。</p>
+<p>用 FNUrlRoute，可以用来解耦模块，使得模块之前的调用独立开来，举个简单的例子，你在 VC、Model 或者 Cell 中直接调用类似<code>Open(xxxPage)</code> 的方式直接打开一个页面（或者唤起一个模块），从而减少代码的冗余。</p>
+<p>另外还有一个神用途：比如Banner的跳转问题，只要跳转链接遵循规则，运营想跳什么页面，配对应的urlRoute链接就行了。</p>
+<p>如果这样说不够直观，直接上 Demo 来描述。</p>]]>
+    
+    </summary>
+    
+      <category term="Project" scheme="http://yoursite.com/tags/Project/"/>
+    
+      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[写了一个 Mac 编码解码小工具 Unicoder]]></title>
+    <link href="http://yoursite.com/2016/08/19/2016-08-19-01/"/>
+    <id>http://yoursite.com/2016/08/19/2016-08-19-01/</id>
+    <published>2016-08-18T16:00:00.000Z</published>
+    <updated>2016-11-06T09:03:03.000Z</updated>
+    <content type="html"><![CDATA[<div align="center" display="inline" float="left"><img width="60%" src="http://7xl2dx.com1.z0.glb.clouddn.com/unicoder_preview1.png" alt=""></div><br><div align="center" display="inline" float="left"><img width="15%" src="http://7xl2dx.com1.z0.glb.clouddn.com/unicoder_logo.png" alt=""></div>
+
+<p>Swift实现，Mac端字符串编码、解码小工具。</p>
+<p>开源在<a href="https://github.com/Fnoz/Unicoder4Mac" target="_blank" rel="external">这里</a>。</p>
+<a id="more"></a>]]></content>
+    <summary type="html">
+    <![CDATA[<div align="center" display="inline" float="left"><img width=60% src="http://7xl2dx.com1.z0.glb.clouddn.com/unicoder_preview1.png" alt=""></div><br><div align="center" display="inline" float="left"><img width=15% src="http://7xl2dx.com1.z0.glb.clouddn.com/unicoder_logo.png" alt=""></div>
+
+<p>Swift实现，Mac端字符串编码、解码小工具。</p>
+<p>开源在<a href="https://github.com/Fnoz/Unicoder4Mac">这里</a>。</p>]]>
+    
+    </summary>
+    
+      <category term="Mac" scheme="http://yoursite.com/tags/Mac/"/>
+    
+      <category term="Project" scheme="http://yoursite.com/tags/Project/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[写了一个Swift碎纸机删除动画FNPaperShredder]]></title>
+    <link href="http://yoursite.com/2016/07/15/2016-07-15-01/"/>
+    <id>http://yoursite.com/2016/07/15/2016-07-15-01/</id>
+    <published>2016-07-14T16:00:00.000Z</published>
+    <updated>2016-08-20T08:17:32.000Z</updated>
+    <content type="html"><![CDATA[<div align="center" display="inline" float="left"><img width="33%" src="http://fnoz-blog.bj.bcebos.com/20160711_04.gif" alt=""> <img width="33%" src="http://fnoz-blog.bj.bcebos.com/20160711_05.gif" alt=""></div>
+
+<p>Swift实现的超酷的碎纸机动画：包含2种模式：纸条和纸片。</p>
+<p>开源在<a href="https://github.com/Fnoz/FNPaperShredder" target="_blank" rel="external">这里</a>。</p>
+<a id="more"></a>]]></content>
+    <summary type="html">
+    <![CDATA[<div align="center" display="inline" float="left"><img width=33% src="http://fnoz-blog.bj.bcebos.com/20160711_04.gif" alt=""> <img width=33% src="http://fnoz-blog.bj.bcebos.com/20160711_05.gif" alt=""></div>
+
+<p>Swift实现的超酷的碎纸机动画：包含2种模式：纸条和纸片。</p>
+<p>开源在<a href="https://github.com/Fnoz/FNPaperShredder">这里</a>。</p>]]>
+    
+    </summary>
+    
+      <category term="Project" scheme="http://yoursite.com/tags/Project/"/>
+    
+      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Swift炫酷动效StarWars.iOS剖析]]></title>
+    <link href="http://yoursite.com/2016/07/12/2016-07-12-01/"/>
+    <id>http://yoursite.com/2016/07/12/2016-07-12-01/</id>
+    <published>2016-07-11T18:33:00.000Z</published>
+    <updated>2016-08-11T06:39:55.000Z</updated>
+    <content type="html"><![CDATA[<p>Yalantis团队简直就是我的偶像，用OC和Swift代码实现了诸多炫酷的动效。在这里，我将以Yalantis的StarWars.iOS作为分析对象，剖析其中几个炫酷动效的实现，就当学习了。</p>
+<p>StarWars.iOS（<a href="https://github.com/Yalantis/StarWars.iOS" target="_blank" rel="external">https://github.com/Yalantis/StarWars.iOS</a>）是超炫酷的一套动效，其Swift代码的实现在Github已经获得2400+赞，效果如下：</p>
+<div align="center"><br><img src="http://fnoz-blog.bj.bcebos.com/20160712_00.gif" alt="star_wars-concept.gif"><br></div>
+
+<p>我在这里想要剖析的主要是3块：</p>
+<ol>
+<li>星空背景；</li>
+<li>点击开关后的过渡动效；</li>
+<li>破裂散落效果；<a id="more"></a>
+</li>
+</ol>
+<p>建议clone一份<a href="https://github.com/Yalantis/StarWars.iOS" target="_blank" rel="external">代码</a>，不然估计是看得一头雾水了。</p>
+<p>##1. 星空背景</p>
+<div align="center"><br><img src="http://fnoz-blog.bj.bcebos.com/20160712_01.gif" alt="gif0.gif"><br></div>
+
+<p>这个之前我用过，靠<code>CAEmitterLayer</code>和<code>CAEmitterCell</code>实现，这两个类可以实现大部分的粒子效果，包括火焰、烟雾等效果，这边是我之前写的一个很渣的例子<a href="https://github.com/Fnoz/FNFogEaseOut" target="_blank" rel="external">FNFogEaseOut</a>。利用<code>CAEmitterLayer</code>和<code>CAEmitterCell</code>，可以控制粒子的形状、图案、初始速度、加速度、生命时间、缩放速率等等。</p>
+<p>在这里看一下核心的代码段（<code>StarsOverlay.swift</code>）：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">emitter<span class="class">.emitterMode</span> = kCAEmitterLayerOutline</span><br><span class="line">emitter<span class="class">.emitterShape</span> = kCAEmitterLayerCircle</span><br><span class="line">emitter<span class="class">.renderMode</span> = kCAEmitterLayerOldestFirst</span><br><span class="line">emitter<span class="class">.preservesDepth</span> = true</span><br></pre></td></tr></table></figure>
+<p>在这里指定了<code>CAEmitterLayer</code>的发送模式（<code>kCAEmitterLayerOutline</code>）、发送源形状（<code>kCAEmitterLayerOutline</code>）、渲染模式（<code>kCAEmitterLayerOldestFirst</code>）。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">particle = <span class="function"><span class="title">CAEmitterCell</span><span class="params">()</span></span> </span><br><span class="line">particle<span class="class">.contents</span> = <span class="function"><span class="title">UIImage</span><span class="params">(named: <span class="string">"spark"</span>)</span></span>!<span class="class">.CGImage</span></span><br><span class="line">particle<span class="class">.birthRate</span> = <span class="number">10</span></span><br><span class="line">particle<span class="class">.lifetime</span> = <span class="number">50</span></span><br><span class="line">particle<span class="class">.lifetimeRange</span> = <span class="number">5</span></span><br><span class="line">particle<span class="class">.velocity</span> = <span class="number">20</span></span><br><span class="line">particle<span class="class">.velocityRange</span> = <span class="number">10</span></span><br><span class="line">particle<span class="class">.scale</span> = <span class="number">0.02</span></span><br><span class="line">particle<span class="class">.scaleRange</span> = <span class="number">0.1</span></span><br><span class="line">particle<span class="class">.scaleSpeed</span> = <span class="number">0.02</span></span><br><span class="line">emitter<span class="class">.emitterCells</span> = [particle]</span><br></pre></td></tr></table></figure>
+<p>让<code>CAEmitterCell</code>以10个/s的生成速率生成，并指定了粒子的生命时间、速度、缩放比例和缩放速度。</p>
+<p>最后实现的效果非常梦幻，非常关键的一段小代码：</p>
+<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">emitterTimer = NSTimer.scheduledTimerWithTimeInterval<span class="params">(<span class="number">0.1</span>, target: self, selector: #selector<span class="params">(randomizeEmitterPosition)</span>, userInfo: nil, repeats: <span class="literal">true</span>)</span></span><br><span class="line">func randomizeEmitterPosition<span class="params">()</span> &#123;</span><br><span class="line">	<span class="built_in">let</span> sizeWidth = <span class="built_in">max</span><span class="params">(bounds.width, bounds.height)</span></span><br><span class="line">	<span class="built_in">let</span> radius = CGFloat<span class="params">(arc4random<span class="params">()</span>)</span> <span class="built_in">%</span> sizeWidth</span><br><span class="line">	emitter.emitterSize = CGSize<span class="params">(width: radius, height: radius)</span></span><br><span class="line">	particle.birthRate = <span class="number">10</span> + <span class="built_in">sqrt</span><span class="params">(Float<span class="params">(radius)</span>)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这一段代码使得粒子发射源的位置和生成速率具有一定的随机性，不然就会出现靠近中心的位置有很对星星，但是远一点的地方稀稀疏疏的情况。</p>
+<p><em>总结：核心实现是<code>CAEmitterLayer</code>和<code>CAEmitterCell</code>。</em></p>
+<p>##2. 点击开关后的过渡动效</p>
+<div align="center"><br><img src="http://fnoz-blog.bj.bcebos.com/20160712_02.gif" alt="gif1.gif"><br></div>
+
+<p>这个虽然说看着像<code>UIViewController</code>的过渡动效，实际上只是<code>UIView</code>的过渡。</p>
+<p>简单的说，就是获取当前的<code>View</code>的界面新建一个<code>View</code>，再通过<code>CAShapeLayer</code>设为<code>layer.mask</code>来抠一个洞，实时调整这个洞的大小，从而实现圆形区域放大的效果。</p>
+<p>核心代码（<code>UIView+CircularAnimation.swift</code>）：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let snapshot = self.<span class="function"><span class="title">snapshotViewAfterScreenUpdates</span><span class="params">(false)</span></span></span><br><span class="line">snapshot<span class="class">.frame</span> = self<span class="class">.bounds</span></span><br><span class="line">self.<span class="function"><span class="title">addSubview</span><span class="params">(snapshot)</span></span></span><br></pre></td></tr></table></figure>
+<p>获取当前的<code>View</code>的界面新建一个<code>View</code>，重点是<code>snapshotViewAfterScreenUpdates</code>这个方法，iOS7之后终于再也不用UIGraphics获取截图了。这个方法后面的<code>bool</code>若为<code>false</code>，取到的即是当前的页面状态；否则如果是下面这样的代码，你取到的是一片空白，因为该参数表示是否在所有效果应用在视图上了以后再获取快照：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">[view snapshotViewAfterScreenUpdates:YES]</span><span class="comment">;</span></span><br><span class="line"><span class="title">[view setAlpha:0.0]</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>核心代码（<code>CircularRevealAnimator.swift</code>）：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">let startCirclePath = <span class="function"><span class="title">CGPathCreateWithEllipseInRect</span><span class="params">(SquareAroundCircle(center, radius: startRadius)</span></span>, <span class="function"><span class="title">UnsafePointer</span><span class="params">()</span></span>)</span><br><span class="line">let endCirclePath = <span class="function"><span class="title">CGPathCreateWithEllipseInRect</span><span class="params">(SquareAroundCircle(center, radius: endRadius)</span></span>, <span class="function"><span class="title">UnsafePointer</span><span class="params">()</span></span>)</span><br><span class="line"><span class="tag">var</span> startPath = startCirclePath, endPath = endCirclePath</span><br><span class="line"><span class="tag">var</span> path = <span class="function"><span class="title">CGPathCreateMutable</span><span class="params">()</span></span></span><br><span class="line"><span class="function"><span class="title">CGPathAddRect</span><span class="params">(path, nil, layer.bounds)</span></span></span><br><span class="line"><span class="function"><span class="title">CGPathAddPath</span><span class="params">(path, nil, startCirclePath)</span></span></span><br><span class="line">startPath = path</span><br><span class="line">path = <span class="function"><span class="title">CGPathCreateMutable</span><span class="params">()</span></span></span><br><span class="line"><span class="function"><span class="title">CGPathAddRect</span><span class="params">(path, nil, layer.bounds)</span></span></span><br><span class="line"><span class="function"><span class="title">CGPathAddPath</span><span class="params">(path, nil, endCirclePath)</span></span></span><br><span class="line">endPath = path</span><br></pre></td></tr></table></figure>
+<p><code>startPath</code>和<code>endPath</code>分别为初始状态的小圆和最终状态的大圆；</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">animation</span> = <span class="function"><span class="title">CABasicAnimation</span><span class="params">(keyPath: <span class="string">"path"</span>)</span></span></span><br><span class="line"><span class="attribute">animation</span><span class="class">.fromValue</span> = startPath</span><br><span class="line"><span class="attribute">animation</span><span class="class">.toValue</span> = endPath</span><br><span class="line"></span><br><span class="line"><span class="attribute">mask</span>.<span class="function"><span class="title">addAnimation</span><span class="params">(animation, forKey: <span class="string">"reveal"</span>)</span></span></span><br></pre></td></tr></table></figure>
+<p>实现被抠区域从小变大的动效。</p>
+<p><em>总结：核心实现是<code>snapshotViewAfterScreenUpdates</code>获取截图、<code>CAShapeLayer</code>指定<code>UIView</code>的<code>layer.mask</code>。</em></p>
+<p>##3. 破裂散落效果</p>
+<div align="center"><br><img src="http://fnoz-blog.bj.bcebos.com/20160712_03.gif" alt="gif2.gif"><br></div>
+
+<p>其实这个效果是整套动效的关键，也是我最喜欢的部分。<br>前面讲到了<code>CAEmitterCell</code>粒子，估计会有很多人会和我一样，想用矩形或正方形的粒子来实现这个效果。不过我没能继续做下去，并且StarWars.iOS中也不是这样实现的。</p>
+<p>另外，这是一个<code>UIViewController</code>的过渡动画。</p>
+<p>实现的关键和上面讲到的过渡动画有一点类似：</p>
+<ol>
+<li>截图；</li>
+<li>分割成小块；</li>
+<li>散落；</li>
+</ol>
+<p>自定义<code>UIViewController</code>过渡动画，需要用到<code>protocol</code> <code>UIViewControllerAnimatedTransitioning</code>，实现下面2个方法：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">public <span class="func"><span class="keyword">func</span> <span class="title">transitionDuration</span><span class="params">(transitionContext: UIViewControllerContextTransitioning?)</span></span> -&gt; <span class="type">NSTimeInterval</span></span><br><span class="line">public <span class="func"><span class="keyword">func</span> <span class="title">animateTransition</span><span class="params">(transitionContext: UIViewControllerContextTransitioning)</span></span></span><br></pre></td></tr></table></figure>
+<p>前者制定过渡动画的时长，后者可以拿到过渡前后的页面View，从而自定义过渡过程。</p>
+<p>自定义过渡核心代码（<code>StarWarsUIDynamicAnimator.swift</code>）：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public <span class="func"><span class="keyword">func</span> <span class="title">transitionDuration</span><span class="params">(transitionContext: UIViewControllerContextTransitioning?)</span></span> -&gt; <span class="type">NSTimeInterval</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">self</span>.duration</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public <span class="func"><span class="keyword">func</span> <span class="title">animateTransition</span><span class="params">(transitionContext: UIViewControllerContextTransitioning)</span></span> &#123;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>破裂散落效果核心代码：</p>
+<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> fromViewSnapshot = fromView.snapshotViewAfterScreenUpdates<span class="params">(<span class="literal">false</span>)</span></span><br><span class="line"><span class="keyword">for</span> ... &#123;</span><br><span class="line">	<span class="keyword">for</span> ... &#123;</span><br><span class="line">		<span class="built_in">let</span> snapshotRegion = CGRect<span class="params">(x: x, y: y, width: width, height: height)</span></span><br><span class="line">		<span class="built_in">let</span> snapshot = fromViewSnapshot.resizableSnapshotViewFromRect<span class="params">(snapshotRegion, afterScreenUpdates: <span class="literal">false</span>, withCapInsets: UIEdgeInsetsZero)</span></span><br><span class="line">		 containerView.addSubview<span class="params">(snapshot)</span></span><br></pre></td></tr></table></figure>
+<p>获取当前<code>View</code>的截图<code>View</code>，并用<code>resizableSnapshotViewFromRect</code>得到各个方块所在位置的截图<code>View</code>。</p>
+<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">func randomFloatBetween<span class="params">(smallNumber: CGFloat, and bigNumber: CGFloat)</span> -&gt; CGFloat &#123;</span><br><span class="line">	<span class="built_in">let</span> diff = bigNumber - smallNumber</span><br><span class="line">	return CGFloat<span class="params">(arc4random<span class="params">()</span>)</span> / <span class="number">100.0</span> <span class="built_in">%</span> diff + smallNumber</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">let</span> push = UIPushBehavior<span class="params">(items: [snapshot], mode: .Instantaneous)</span></span><br><span class="line">push.pushDirection = CGVector<span class="params">(dx: randomFloatBetween<span class="params">(-<span class="number">0.15</span> , and: <span class="number">0.15</span>)</span>, dy: randomFloatBetween<span class="params">(-<span class="number">0.15</span> , and: <span class="number">0</span>)</span>)</span></span><br><span class="line">push.active = <span class="literal">true</span></span><br><span class="line">animator.addBehavior<span class="params">(push)</span></span><br><span class="line">                </span><br><span class="line"><span class="built_in">let</span> gravity = UIGravityBehavior<span class="params">(items: snapshots)</span></span><br><span class="line">animator.addBehavior<span class="params">(gravity)</span></span><br></pre></td></tr></table></figure>
+<p>给每个小块加上瞬间（<code>Instantaneous</code>）的推力（<code>UIPushBehavior</code>），<code>randomFloatBetween</code>的随机部分，使得每个小块在竖直和水平上都有些错开，达到裂开的效果。</p>
+<p>给snapshots加上重力，实现下落的效果。</p>
+<p>##总结</p>
+<p>其实我早就想仔细研究这个动效的实现了，但是看着这么炫酷，总感觉是超复杂的实现。潜下心来看代码，虽然代码也不短，但是从实现思路和核心知识点来看，都不复杂。</p>
+<p>这3个动效学到的新知识：<code>CAEmitterLayer</code>和<code>CAEmitterCell</code>、<code>snapshotViewAfterScreenUpdates</code>截图、<code>UIPushBehavior</code>和<code>UIGravityBehavior</code>。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Yalantis团队简直就是我的偶像，用OC和Swift代码实现了诸多炫酷的动效。在这里，我将以Yalantis的StarWars.iOS作为分析对象，剖析其中几个炫酷动效的实现，就当学习了。</p>
+<p>StarWars.iOS（<a href="https://github.com/Yalantis/StarWars.iOS">https://github.com/Yalantis/StarWars.iOS</a>）是超炫酷的一套动效，其Swift代码的实现在Github已经获得2400+赞，效果如下：</p>
+<div align=center><br><img src="http://fnoz-blog.bj.bcebos.com/20160712_00.gif" alt="star_wars-concept.gif"><br></div>
+
+<p>我在这里想要剖析的主要是3块：</p>
+<ol>
+<li>星空背景；</li>
+<li>点击开关后的过渡动效；</li>
+<li>破裂散落效果；]]>
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://yoursite.com/tags/Blog/"/>
+    
+      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[写了一个Swift文字随机渐现动画FNBlingBlingLabel]]></title>
+    <link href="http://yoursite.com/2016/06/30/2016-06-30-01/"/>
+    <id>http://yoursite.com/2016/06/30/2016-06-30-01/</id>
+    <published>2016-06-29T16:00:00.000Z</published>
+    <updated>2016-08-20T08:44:58.000Z</updated>
+    <content type="html"><![CDATA[<div align="center" display="inline" float="left"><img width="50%" src="http://fnoz-blog.bj.bcebos.com/20160711_00.gif" alt=""></div>
+
+<p>Swift实现的UILabel文字随机渐隐渐现, Swift版RQShineLabel。</p>
+<p>开源在<a href="https://github.com/Fnoz/FNBlingBlingLabel" target="_blank" rel="external">这里</a>。</p>
+<a id="more"></a>]]></content>
+    <summary type="html">
+    <![CDATA[<div align="center" display="inline" float="left"><img width=50% src="http://fnoz-blog.bj.bcebos.com/20160711_00.gif" alt=""></div>
+
+<p>Swift实现的UILabel文字随机渐隐渐现, Swift版RQShineLabel。</p>
+<p>开源在<a href="https://github.com/Fnoz/FNBlingBlingLabel">这里</a>。</p>]]>
+    
+    </summary>
+    
+      <category term="Project" scheme="http://yoursite.com/tags/Project/"/>
+    
+      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[写了一个Swift火柴下拉动画FNMatchPull]]></title>
+    <link href="http://yoursite.com/2016/06/30/2016-06-22-01/"/>
+    <id>http://yoursite.com/2016/06/30/2016-06-22-01/</id>
+    <published>2016-06-29T16:00:00.000Z</published>
+    <updated>2016-08-20T08:51:35.000Z</updated>
+    <content type="html"><![CDATA[<div align="center" display="inline" float="left"><img width="33%" src="http://fnoz-blog.bj.bcebos.com/20160711_01.gif" alt=""> <img width="33%" src="http://fnoz-blog.bj.bcebos.com/20160711_02.gif" alt=""> <img width="68%" src="http://fnoz-blog.bj.bcebos.com/20160711_03.gif" alt=""></div>
+
+<p>Swift实现的火柴图案&amp;火柴文字下拉刷新动效（超炫酷下拉刷新），Swift&amp;加强版本CBStoreHouseRefreshControl。</p>
+<p>开源在<a href="https://github.com/Fnoz/FNMatchPull" target="_blank" rel="external">这里</a>。</p>
+<a id="more"></a>]]></content>
+    <summary type="html">
+    <![CDATA[<div align="center" display="inline" float="left"><img width=33% src="http://fnoz-blog.bj.bcebos.com/20160711_01.gif" alt=""> <img width=33% src="http://fnoz-blog.bj.bcebos.com/20160711_02.gif" alt=""> <img width=68% src="http://fnoz-blog.bj.bcebos.com/20160711_03.gif" alt=""></div>
+
+<p>Swift实现的火柴图案&amp;火柴文字下拉刷新动效（超炫酷下拉刷新），Swift&amp;加强版本CBStoreHouseRefreshControl。</p>
+<p>开源在<a href="https://github.com/Fnoz/FNMatchPull">这里</a>。</p>]]>
+    
+    </summary>
+    
+      <category term="Project" scheme="http://yoursite.com/tags/Project/"/>
+    
+      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[写了一个获取APP图标的小工具网页 - Node]]></title>
+    <link href="http://yoursite.com/2016/05/29/2016-05-29-01/"/>
+    <id>http://yoursite.com/2016/05/29/2016-05-29-01/</id>
+    <published>2016-05-28T16:00:00.000Z</published>
+    <updated>2016-08-20T10:57:10.000Z</updated>
+    <content type="html"><![CDATA[<div align="center" display="inline" float="left"><img width="60%" src="http://7xl2dx.com1.z0.glb.clouddn.com/getappicon_preview0.png" alt=""></div><br><div align="center" display="inline" float="left"><img width="60%" src="http://7xl2dx.com1.z0.glb.clouddn.com/getappicon_preview1.png" alt=""></div>
+
+<p>一个可以搜索到Apple AppStore上App高清图标的网站，由Node编写。</p>
+<p>开源在<a href="https://github.com/Fnoz/GetAppIcon" target="_blank" rel="external">这里</a></p>
+<a id="more"></a>]]></content>
+    <summary type="html">
+    <![CDATA[<div align="center" display="inline" float="left"><img width=60% src="http://7xl2dx.com1.z0.glb.clouddn.com/getappicon_preview0.png" alt=""></div><br><div align="center" display="inline" float="left"><img width=60% src="http://7xl2dx.com1.z0.glb.clouddn.com/getappicon_preview1.png" alt=""></div>
+
+<p>一个可以搜索到Apple AppStore上App高清图标的网站，由Node编写。</p>
+<p>开源在<a href="https://github.com/Fnoz/GetAppIcon">这里</a></p>]]>
+    
+    </summary>
+    
+      <category term="Project" scheme="http://yoursite.com/tags/Project/"/>
+    
+      <category term="Web" scheme="http://yoursite.com/tags/Web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[写了一个iOS App 明星壁纸]]></title>
+    <link href="http://yoursite.com/2016/03/27/2016-03-27-01/"/>
+    <id>http://yoursite.com/2016/03/27/2016-03-27-01/</id>
+    <published>2016-03-26T16:00:00.000Z</published>
+    <updated>2016-08-20T13:20:53.000Z</updated>
+    <content type="html"><![CDATA[<div align="center"><a href="https://itunes.apple.com/cn/app/ming-xing-bi-zhi-ou-xiang/id1104673142?mt=8" target="_blank" rel="external">明星壁纸</a></div><br><div align="center" display="inline" float="left"><img width="10%" src="http://fnoz-blog.bj.bcebos.com/20160711_07.png" alt=""></div>
+
+
+<div align="center" display="inline" float="left"><img width="100%" src="http://7xl2dx.com1.z0.glb.clouddn.com/starwallpaper_preview.png" alt=""></div>
+
+<p>一款以明星的高清壁纸作为主要导向的壁纸App。</p>
+<p>客户端由OC编写，开源在<a href="https://github.com/Fnoz/StarWallpaper" target="_blank" rel="external">这里</a></p>
+<p>服务端用Node做了一下接口的转发，开源在<a href="https://github.com/Fnoz/StarWallpaperServer" target="_blank" rel="external">这里</a></p>
+<a id="more"></a>]]></content>
+    <summary type="html">
+    <![CDATA[<div align="center"><a href="https://itunes.apple.com/cn/app/ming-xing-bi-zhi-ou-xiang/id1104673142?mt=8">明星壁纸</a></div><br><div align="center" display="inline" float="left"><img width=10% src="http://fnoz-blog.bj.bcebos.com/20160711_07.png" alt=""></div>
+
+
+<div align="center" display="inline" float="left"><img width=100% src="http://7xl2dx.com1.z0.glb.clouddn.com/starwallpaper_preview.png" alt=""></div>
+
+<p>一款以明星的高清壁纸作为主要导向的壁纸App。</p>
+<p>客户端由OC编写，开源在<a href="https://github.com/Fnoz/StarWallpaper">这里</a></p>
+<p>服务端用Node做了一下接口的转发，开源在<a href="https://github.com/Fnoz/StarWallpaperServer">这里</a></p>]]>
+    
+    </summary>
+    
+      <category term="Project" scheme="http://yoursite.com/tags/Project/"/>
+    
+      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[iOS8开发删除相册，无法再创建]]></title>
+    <link href="http://yoursite.com/2015/11/10/2015-11-10-01/"/>
+    <id>http://yoursite.com/2015/11/10/2015-11-10-01/</id>
+    <published>2015-11-10T11:34:00.000Z</published>
+    <updated>2016-08-20T07:53:25.000Z</updated>
+    <content type="html"><![CDATA[<p>我们知道，可以通过以下方法将图片保存到相册的指定文件夹：</p>
+<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ALAssetsLibrary <span class="built_in">*</span>mylibrary = [[ALAssetsLibrary alloc] init];</span><br><span class="line">[mylibrary addAssetsGroupAlbumWithName:@<span class="string">"FnozAlbum"</span> resultBlock:^<span class="params">(ALAssetsGroup *group)</span> &#123;</span><br><span class="line">                                        NSLog<span class="params">(@<span class="string">"Created a album!"</span>)</span>;</span><br><span class="line">                                    &#125; failureBlock:^<span class="params">(NSError *error)</span> &#123;</span><br><span class="line">                                        NSLog<span class="params">(@<span class="string">"Failed to create!"</span>)</span>;</span><br><span class="line">                                    &#125;];</span><br></pre></td></tr></table></figure>
+<p><strong>Tips</strong>：使用前要先引入<code>AssetsLibrary.framework</code>；</p>
+<p>在iOS8之后的系统，用这个方法会出现一个问题：删除创建的文件夹后，无法再创建文件夹。</p>
+<p><strong>原因</strong>：在iOS8之后，系统的相册中增加了一个“最近删除”文件夹，也就是说，用原来的方式创建文件夹，删除的文件夹并没有被真正删除，而只是修改了状态，所以在此时创建失败。<br><a id="more"></a></p>
+<p>iOS8以后的相册操作要靠<code>Photos.framework</code>实现；</p>
+<p>解决办法如下：</p>
+<ol>
+<li>引入<code>Photos.framework</code>；</li>
+<li>调用以下方法来创建相册：</li>
+</ol>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="collection">[<span class="collection">[PHPhotoLibrary sharedPhotoLibrary]</span> performChanges:<span class="comment">^&#123;</span><br><span class="line">                                        [PHAssetCollectionChangeRequest creationRequestForAssetCollectionWithTitle:@"FnozAlbum"];</span><br><span class="line">                                    &#125;</span> completionHandler:^<span class="list">(<span class="keyword">BOOL</span> success, NSError * _Nullable error)</span> <span class="collection">&#123;</span><br><span class="line">                                        if <span class="list">(<span class="keyword">success</span>)</span> <span class="collection">&#123;</span><br><span class="line">                                            NSLog<span class="list">(@<span class="string">"Created a album!"</span>)</span><span class="comment">;</span></span><br><span class="line">                                        &#125;</span></span><br><span class="line">                                        else if <span class="list">(<span class="keyword">error</span>)</span></span><br><span class="line">                                        <span class="collection">&#123;</span><br><span class="line">                                            NSLog<span class="list">(@<span class="string">"Failed to create!%@"</span>, error)</span><span class="comment">;</span></span><br><span class="line">                                        &#125;</span></span><br><span class="line">                                    &#125;</span>]</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>需要注意的是，这个新方法只支持iOS8及以上的系统；</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>我们知道，可以通过以下方法将图片保存到相册的指定文件夹：</p>
+<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ALAssetsLibrary <span class="built_in">*</span>mylibrary = [[ALAssetsLibrary alloc] init];</span><br><span class="line">[mylibrary addAssetsGroupAlbumWithName:@<span class="string">"FnozAlbum"</span> resultBlock:^<span class="params">(ALAssetsGroup *group)</span> &#123;</span><br><span class="line">                                        NSLog<span class="params">(@<span class="string">"Created a album!"</span>)</span>;</span><br><span class="line">                                    &#125; failureBlock:^<span class="params">(NSError *error)</span> &#123;</span><br><span class="line">                                        NSLog<span class="params">(@<span class="string">"Failed to create!"</span>)</span>;</span><br><span class="line">                                    &#125;];</span><br></pre></td></tr></table></figure>
+<p><strong>Tips</strong>：使用前要先引入<code>AssetsLibrary.framework</code>；</p>
+<p>在iOS8之后的系统，用这个方法会出现一个问题：删除创建的文件夹后，无法再创建文件夹。</p>
+<p><strong>原因</strong>：在iOS8之后，系统的相册中增加了一个“最近删除”文件夹，也就是说，用原来的方式创建文件夹，删除的文件夹并没有被真正删除，而只是修改了状态，所以在此时创建失败。<br>]]>
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://yoursite.com/tags/Blog/"/>
+    
+      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[使用Chisel在lldb中查看视图层级]]></title>
+    <link href="http://yoursite.com/2015/06/01/2015-06-01-01/"/>
+    <id>http://yoursite.com/2015/06/01/2015-06-01-01/</id>
+    <published>2015-06-01T15:13:00.000Z</published>
+    <updated>2016-07-16T13:14:23.000Z</updated>
+    <content type="html"><![CDATA[<p>#介绍</p>
+<p><a href="https://github.com/facebook/chisel" target="_blank" rel="external">Chisel</a>是Facebook提供的基于Python的一套开源工具，使你可以在Xcode的lldb中通过<code>pvc</code>、<code>pviews</code>等指令显示视图层级，作为视图调试的一种手段。</p>
+<p>#简单使用</p>
+<p>这套工具的使用是在XCode的lldb窗口中通过输入命令进行操作。<br>先看两个最常见的例子。</p>
+<div align="center"><br><img src="http://7xl2dx.com1.z0.glb.clouddn.com/chisel_pvc.png" alt="chisel"><br><img src="http://7xl2dx.com1.z0.glb.clouddn.com/chisel_border.png" alt="chisel"><br><img src="http://7xl2dx.com1.z0.glb.clouddn.com/chisel_mask.png" alt="chisel"><br></div><br><div align="center"><br><a id="more"></a><br><img src="http://7xl2dx.com1.z0.glb.clouddn.com/chisel_border_mask_iphone.png" alt="chisel"><br></div>
+
+<p>一方面是可以打印出页面的一些信息，另一方面是可以高亮、隐藏一些页面，甚至调整点击事件的响应链；</p>
+<p>常见的几条指令就在下面了：</p>
+<div align="center"><br><img src="http://7xl2dx.com1.z0.glb.clouddn.com/chisel_fblist.png" alt="chisel"><br></div>
+
+<p>这些是现成的功能，除此之外，你还可以用Python写自己的命令。</p>
+<p>#安装<br>安装的方法很简单，有装Homebrew的，直接执行这行代码即可<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">brew </span>install chisel</span><br></pre></td></tr></table></figure></p>
+<p>你也可以手动安装：下载项目代码后<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.lldbinit</span><br></pre></td></tr></table></figure></p>
+<p>在最后加上<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="command"><span class="keyword">command</span> <span class="title">script</span> <span class="title">import</span> 下载的项目中<span class="title">fblldb</span>.<span class="title">py</span>的路径</span></span><br></pre></td></tr></table></figure></p>
+<p>装完以后你就可以玩一玩了，虽然不是每天都用的功能，但是在某些特殊场景，可以帮上一些忙。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>#介绍</p>
+<p><a href="https://github.com/facebook/chisel">Chisel</a>是Facebook提供的基于Python的一套开源工具，使你可以在Xcode的lldb中通过<code>pvc</code>、<code>pviews</code>等指令显示视图层级，作为视图调试的一种手段。</p>
+<p>#简单使用</p>
+<p>这套工具的使用是在XCode的lldb窗口中通过输入命令进行操作。<br>先看两个最常见的例子。</p>
+<div align=center><br><img src="http://7xl2dx.com1.z0.glb.clouddn.com/chisel_pvc.png" alt="chisel"><br><img src="http://7xl2dx.com1.z0.glb.clouddn.com/chisel_border.png" alt="chisel"><br><img src="http://7xl2dx.com1.z0.glb.clouddn.com/chisel_mask.png" alt="chisel"><br></div><br><div align=center><br>]]>
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://yoursite.com/tags/Blog/"/>
+    
+      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[用FLEX获取iOS设备视图层级]]></title>
+    <link href="http://yoursite.com/2015/03/05/2015-03-05-01/"/>
+    <id>http://yoursite.com/2015/03/05/2015-03-05-01/</id>
+    <published>2015-03-05T12:00:00.000Z</published>
+    <updated>2016-08-20T07:51:32.000Z</updated>
+    <content type="html"><![CDATA[<p>关于FLEX使用的截图如下：</p>
+<div align="center"><br><img src="http://7xl2dx.com1.z0.glb.clouddn.com/fnozBlog_flex.jpg" alt="flex"><br></div>
+
+<p>分为越狱和非越狱的使用方式：</p>
+<p>01.越狱方式：在Cydia中安装FLEX，并进入FLEX设置中配置；</p>
+<p>02.非越狱，通过加入第三方库FLEX可实现功能，地址为：<a href="https://github.com/Flipboard/FLEX，也可以用Pod引入；" target="_blank" rel="external">https://github.com/Flipboard/FLEX，也可以用Pod引入；</a><br><a id="more"></a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>关于FLEX使用的截图如下：</p>
+<div align=center><br><img src="http://7xl2dx.com1.z0.glb.clouddn.com/fnozBlog_flex.jpg" alt="flex"><br></div>
+
+<p>分为越狱和非越狱的使用方式：</p>
+<p>01.越狱方式：在Cydia中安装FLEX，并进入FLEX设置中配置；</p>
+<p>02.非越狱，通过加入第三方库FLEX可实现功能，地址为：<a href="https://github.com/Flipboard/FLEX，也可以用Pod引入；">https://github.com/Flipboard/FLEX，也可以用Pod引入；</a><br>]]>
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://yoursite.com/tags/Blog/"/>
+    
+      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[OC获取类名的方法]]></title>
+    <link href="http://yoursite.com/2014/11/18/2014-11-18-01/"/>
+    <id>http://yoursite.com/2014/11/18/2014-11-18-01/</id>
+    <published>2014-11-18T08:00:00.000Z</published>
+    <updated>2016-08-20T07:51:16.000Z</updated>
+    <content type="html"><![CDATA[<p>iOS开发中获取类名的2种方法：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="built_in">NSString</span>*)getClassName0:(<span class="keyword">id</span>)obj</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span>* className = class_getName([obj class]);</span><br><span class="line">    <span class="keyword">return</span> [<span class="built_in">NSString</span> stringWithUTF8String:className];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">+ (<span class="built_in">NSString</span>*)getClassName1:(<span class="keyword">id</span>)obj</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">NSStringFromClass</span>([<span class="keyword">self</span> class]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>iOS开发中获取类名的2种方法：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="built_in">NSString</span>*)getClassName0:(<span class="keyword">id</span>)obj</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span>* className = class_getName([obj class]);</span><br><span class="line">    <span class="keyword">return</span> [<span class="built_in">NSString</span> stringWithUTF8String:className];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">+ (<span class="built_in">NSString</span>*)getClassName1:(<span class="keyword">id</span>)obj</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">NSStringFromClass</span>([<span class="keyword">self</span> class]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]>
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://yoursite.com/tags/Blog/"/>
+    
+      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+    
+  </entry>
+  
+</feed>
