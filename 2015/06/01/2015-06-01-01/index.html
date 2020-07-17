@@ -1,161 +1,97 @@
 <!DOCTYPE html>
-<html lang=zh>
-<head>
-    <!-- so meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="#介绍
+<html lang="en">
+  <!-- Head tag -->
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Title -->
+  
+  <title>使用Chisel在lldb中查看视图层级 - I&#39;m Fnoz</title>
+
+  <!--Favicon-->
+  <link rel="icon" href="favicon/favicon.ico">
+
+  <!--Description-->
+  
+      <meta name="description" content="#介绍
 Chisel是Facebook提供的基于Python的一套开源工具，使你可以在Xcode的lldb中通过pvc、pviews等指令显示视图层级，作为视图调试的一种手段。
 #简单使用
 这套工具的使用是在XCode的lldb窗口中通过输入命令进行操作。先看两个最常见的例子。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="使用Chisel在lldb中查看视图层级">
-<meta property="og:url" content="http://yoursite.com/2015/06/01/2015-06-01-01/index.html">
-<meta property="og:site_name" content="Fnoz Blog">
-<meta property="og:description" content="#介绍
-Chisel是Facebook提供的基于Python的一套开源工具，使你可以在Xcode的lldb中通过pvc、pviews等指令显示视图层级，作为视图调试的一种手段。
-#简单使用
-这套工具的使用是在XCode的lldb窗口中通过输入命令进行操作。先看两个最常见的例子。">
-<meta property="og:image" content="http://7xl2dx.com1.z0.glb.clouddn.com/chisel_pvc.png">
-<meta property="og:image" content="http://7xl2dx.com1.z0.glb.clouddn.com/chisel_border.png">
-<meta property="og:image" content="http://7xl2dx.com1.z0.glb.clouddn.com/chisel_mask.png">
-<meta property="og:image" content="http://7xl2dx.com1.z0.glb.clouddn.com/chisel_border_mask_iphone.png">
-<meta property="og:image" content="http://7xl2dx.com1.z0.glb.clouddn.com/chisel_fblist.png">
-<meta property="og:updated_time" content="2016-07-16T13:14:23.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用Chisel在lldb中查看视图层级">
-<meta name="twitter:description" content="#介绍
-Chisel是Facebook提供的基于Python的一套开源工具，使你可以在Xcode的lldb中通过pvc、pviews等指令显示视图层级，作为视图调试的一种手段。
-#简单使用
-这套工具的使用是在XCode的lldb窗口中通过输入命令进行操作。先看两个最常见的例子。">
-    
-    
-        
-          
-              <link rel="shortcut icon" href="/images/favicon.ico">
-          
-        
-        
-          
-            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
-          
-        
-        
-          
-            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-          
-        
-    
-    <!-- title -->
-    <title>使用Chisel在lldb中查看视图层级</title>
-    <!-- styles -->
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
-    <!-- rss -->
-    
-    
-</head>
-
-<body>
-    
-      <div id="header-post">
-  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
-  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
-  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
-  <span id="menu">
-    <span id="nav">
-      <ul>
-         
-          <li><a href="/">Home</a></li>
-         
-          <li><a href="/about/">About</a></li>
-         
-          <li><a href="/archives/">Writing</a></li>
-         
-          <li><a href="http://github.com/probberechts">Projects</a></li>
-        
-      </ul>
-    </span>
-    <br/>
-    <span id="actions">
-      <ul>
-        
-        <li><a class="icon" href="/2015/11/10/2015-11-10-01/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
-        
-        
-        <li><a class="icon" href="/2015/03/05/2015-03-05-01/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
-        
-        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
-        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
-      </ul>
-      <span id="i-prev" class="info" style="display:none;">Previous post</span>
-      <span id="i-next" class="info" style="display:none;">Next post</span>
-      <span id="i-top" class="info" style="display:none;">Back to top</span>
-      <span id="i-share" class="info" style="display:none;">Share post</span>
-    </span>
-    <br/>
-    <div id="share" style="display: none">
-      <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2015/06/01/2015-06-01-01/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2015/06/01/2015-06-01-01/&text=使用Chisel在lldb中查看视图层级"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2015/06/01/2015-06-01-01/&title=使用Chisel在lldb中查看视图层级"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2015/06/01/2015-06-01-01/&is_video=false&description=使用Chisel在lldb中查看视图层级"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=使用Chisel在lldb中查看视图层级&body=Check out this article: http://yoursite.com/2015/06/01/2015-06-01-01/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2015/06/01/2015-06-01-01/&title=使用Chisel在lldb中查看视图层级"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2015/06/01/2015-06-01-01/&title=使用Chisel在lldb中查看视图层级"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2015/06/01/2015-06-01-01/&title=使用Chisel在lldb中查看视图层级"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2015/06/01/2015-06-01-01/&title=使用Chisel在lldb中查看视图层级"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2015/06/01/2015-06-01-01/&name=使用Chisel在lldb中查看视图层级&description=&lt;p&gt;#介绍&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/facebook/chisel&quot;&gt;Chisel&lt;/a&gt;是Facebook提供的基于Python的一套开源工具，使你可以在Xcode的lldb中通过&lt;code&gt;pvc&lt;/code&gt;、&lt;code&gt;pviews&lt;/code&gt;等指令显示视图层级，作为视图调试的一种手段。&lt;/p&gt;
-&lt;p&gt;#简单使用&lt;/p&gt;
-&lt;p&gt;这套工具的使用是在XCode的lldb窗口中通过输入命令进行操作。&lt;br&gt;先看两个最常见的例子。&lt;/p&gt;
-&lt;div align=center&gt;&lt;br&gt;&lt;img src=&quot;http://7xl2dx.com1.z0.glb.clouddn.com/chisel_pvc.png&quot; alt=&quot;chisel&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://7xl2dx.com1.z0.glb.clouddn.com/chisel_border.png&quot; alt=&quot;chisel&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://7xl2dx.com1.z0.glb.clouddn.com/chisel_mask.png&quot; alt=&quot;chisel&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;br&gt;&lt;div align=center&gt;&lt;br&gt;"><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-    <div id="toc">
-      
-    </div>
-  </span>
-</div>
-
-    
-    <div class="content index width mx-auto px2 my4">
-        
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header>
-    
-    <h1 class="posttitle" itemprop="name headline">
-        使用Chisel在lldb中查看视图层级
-    </h1>
-
-
-
-    <div class="meta">
-      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Fnoz Blog</span>
-      </span>
-      
-    <div class="postdate">
-        <time datetime="2015-06-01T15:13:00.000Z" itemprop="datePublished">2015-06-01</time>
-    </div>
-
-
-      
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Blog/">Blog</a>, <a class="tag-link" href="/tags/iOS/">iOS</a>
-    </div>
-
-
-    </div>
-  </header>
   
 
-  <div class="content" itemprop="articleBody">
-    <p>#介绍</p>
-<p><a href="https://github.com/facebook/chisel" target="_blank" rel="external">Chisel</a>是Facebook提供的基于Python的一套开源工具，使你可以在Xcode的lldb中通过<code>pvc</code>、<code>pviews</code>等指令显示视图层级，作为视图调试的一种手段。</p>
+  <!--Author-->
+  
+      <meta name="author" content="Fnoz">
+  
+
+  <!-- Pure CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Open+Sans:300,800" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+
+  <body>
+  	<div class="container-fluid navbar-container m-sm-5">
+      <!-- Header -->
+      <nav class="navbar navbar-toggleable-sm navbar-light px-1 py-3 my-3 mb-sm-5">
+  <a class="navbar-brand ml-2" href="/">I'm Fnoz</a>
+  <button class="navbar-toggler navbar-toggler-right py-2" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse text-center" id="navbarCollapse">
+    <ul class="navbar-nav ml-auto my-auto">
+      
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+      
+        <li class="nav-item">
+          <a class="nav-link" href="/contact">Contact</a>
+        </li>
+      
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.instagram.com">Instagram</a>
+        </li>
+      
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.linkedin.com">LinkedIn</a>
+        </li>
+      
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.facebook.com">Facebook</a>
+        </li>
+      
+    </ul>
+    <hr class="hidden-md-up" />
+  </div>
+</nav>
+
+
+  		<div class="row">
+  			<div class="col-12 mb-4">
+  <img class="img-fluid project-img" src="/images/unsplash.jpg" alt="使用Chisel在lldb中查看视图层级">
+</div>
+<div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
+  <h1>使用Chisel在lldb中查看视图层级</h1>
+</div>
+<div class="col-lg-8 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4 portfolio-content">
+  <p>#介绍</p>
+<p><a href="https://github.com/facebook/chisel" target="_blank" rel="noopener">Chisel</a>是Facebook提供的基于Python的一套开源工具，使你可以在Xcode的lldb中通过<code>pvc</code>、<code>pviews</code>等指令显示视图层级，作为视图调试的一种手段。</p>
 <p>#简单使用</p>
 <p>这套工具的使用是在XCode的lldb窗口中通过输入命令进行操作。<br>先看两个最常见的例子。</p>
 <div align="center"><br><img src="http://7xl2dx.com1.z0.glb.clouddn.com/chisel_pvc.png" alt="chisel"><br><img src="http://7xl2dx.com1.z0.glb.clouddn.com/chisel_border.png" alt="chisel"><br><img src="http://7xl2dx.com1.z0.glb.clouddn.com/chisel_mask.png" alt="chisel"><br></div><br><div align="center"><br><a id="more"></a><br><img src="http://7xl2dx.com1.z0.glb.clouddn.com/chisel_border_mask_iphone.png" alt="chisel"><br></div>
@@ -165,117 +101,22 @@ Chisel是Facebook提供的基于Python的一套开源工具，使你可以在Xco
 <div align="center"><br><img src="http://7xl2dx.com1.z0.glb.clouddn.com/chisel_fblist.png" alt="chisel"><br></div>
 
 <p>这些是现成的功能，除此之外，你还可以用Python写自己的命令。</p>
-<p>#安装<br>安装的方法很简单，有装Homebrew的，直接执行这行代码即可<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">brew </span>install chisel</span><br></pre></td></tr></table></figure></p>
-<p>你也可以手动安装：下载项目代码后<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.lldbinit</span><br></pre></td></tr></table></figure></p>
-<p>在最后加上<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="command"><span class="keyword">command</span> <span class="title">script</span> <span class="title">import</span> 下载的项目中<span class="title">fblldb</span>.<span class="title">py</span>的路径</span></span><br></pre></td></tr></table></figure></p>
+<p>#安装<br>安装的方法很简单，有装Homebrew的，直接执行这行代码即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install chisel</span><br></pre></td></tr></table></figure></p>
+<p>你也可以手动安装：下载项目代码后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~/.lldbinit</span><br></pre></td></tr></table></figure></p>
+<p>在最后加上<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command script import 下载的项目中fblldb.py的路径</span><br></pre></td></tr></table></figure></p>
 <p>装完以后你就可以玩一玩了，虽然不是每天都用的功能，但是在某些特殊场景，可以帮上一些忙。</p>
 
-  </div>
-</article>
-
-
-
-    </div>
-    
-      <div id="footer-post-container">
-  <div id="footer-post">
-
-    <div id="nav-footer" style="display: none">
-      <ul>
-         
-          <li><a href="/">Home</a></li>
-         
-          <li><a href="/about/">About</a></li>
-         
-          <li><a href="/archives/">Writing</a></li>
-         
-          <li><a href="http://github.com/probberechts">Projects</a></li>
-        
-      </ul>
-    </div>
-
-    <div id="toc-footer" style="display: none">
-      
-    </div>
-
-    <div id="share-footer" style="display: none">
-      <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2015/06/01/2015-06-01-01/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2015/06/01/2015-06-01-01/&text=使用Chisel在lldb中查看视图层级"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2015/06/01/2015-06-01-01/&title=使用Chisel在lldb中查看视图层级"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2015/06/01/2015-06-01-01/&is_video=false&description=使用Chisel在lldb中查看视图层级"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=使用Chisel在lldb中查看视图层级&body=Check out this article: http://yoursite.com/2015/06/01/2015-06-01-01/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2015/06/01/2015-06-01-01/&title=使用Chisel在lldb中查看视图层级"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2015/06/01/2015-06-01-01/&title=使用Chisel在lldb中查看视图层级"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2015/06/01/2015-06-01-01/&title=使用Chisel在lldb中查看视图层级"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2015/06/01/2015-06-01-01/&title=使用Chisel在lldb中查看视图层级"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2015/06/01/2015-06-01-01/&name=使用Chisel在lldb中查看视图层级&description=&lt;p&gt;#介绍&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/facebook/chisel&quot;&gt;Chisel&lt;/a&gt;是Facebook提供的基于Python的一套开源工具，使你可以在Xcode的lldb中通过&lt;code&gt;pvc&lt;/code&gt;、&lt;code&gt;pviews&lt;/code&gt;等指令显示视图层级，作为视图调试的一种手段。&lt;/p&gt;
-&lt;p&gt;#简单使用&lt;/p&gt;
-&lt;p&gt;这套工具的使用是在XCode的lldb窗口中通过输入命令进行操作。&lt;br&gt;先看两个最常见的例子。&lt;/p&gt;
-&lt;div align=center&gt;&lt;br&gt;&lt;img src=&quot;http://7xl2dx.com1.z0.glb.clouddn.com/chisel_pvc.png&quot; alt=&quot;chisel&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://7xl2dx.com1.z0.glb.clouddn.com/chisel_border.png&quot; alt=&quot;chisel&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://7xl2dx.com1.z0.glb.clouddn.com/chisel_mask.png&quot; alt=&quot;chisel&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;br&gt;&lt;div align=center&gt;&lt;br&gt;"><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-
-    <div id="actions-footer">
-      <ul>
-        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
-        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
-        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
-        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
-      </ul>
-    </div>
-
-  </div>
 </div>
 
-    
-    <footer id="footer">
-  <div class="footer-left">
-    Copyright &copy; 2017 Fnoz
-  </div>
-  <div class="footer-right">
-    <nav>
-      <ul>
-         
-          <li><a href="/">Home</a></li>
-         
-          <li><a href="/about/">About</a></li>
-         
-          <li><a href="/archives/">Writing</a></li>
-         
-          <li><a href="http://github.com/probberechts">Projects</a></li>
-        
-      </ul>
-    </nav>
-  </div>
-</footer>
 
-</body>
+      </div>
+      
+  	</div>
+
+    <!-- After footer scripts -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+  </body>
 </html>
-<!-- styles -->
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css" type="text/css">
-<link rel="stylesheet" href="/lib/meslo-LG/styles.css" type="text/css">
-<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css" type="text/css">
-
-<!-- jquery -->
-<script src="/lib/jquery/jquery.min.js" type="text/javascript"></script>
-<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js" type="text/javascript"></script>
-<script src="/js/main.js" type="text/javascript"></script>
-<!-- search -->
-
-<!-- Google Analytics -->
-
-    <script type="text/javascript">
-        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-86660611-1', 'auto');
-        ga('send', 'pageview');
-    </script>
-
-<!-- Disqus Comments -->
-
-
