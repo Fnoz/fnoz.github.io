@@ -346,11 +346,11 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 
 /* Background colour styles */
 
-.bgc-snow{
-	background-color:#FAFAFA;
-}
 .bgc-white{
 	background-color:#FFFFFF;
+}
+.bgc-snow{
+	background-color:#FAFAFA;
 }
 
 /* Text colour styles */
