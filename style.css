@@ -133,6 +133,13 @@ button{
 	font-size:30px!important;
 }
 
+/*  Rounded Image */
+.img-rd-md{
+	border-radius:20px;
+}
+.img-rd-lg{
+	border-radius:34px;
+}
 
 
 
@@ -240,14 +247,6 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 	font-size:20px;
 	line-height:20px;
 }
-.p-3-style{
-	font-family:"PT Sans";
-	line-height:16px;
-}
-.p-4-style{
-	font-family:"PT Sans";
-	line-height:16px;
-}
 .h4-5-style{
 	font-family:"PT Sans";
 	font-size:20px;
@@ -258,22 +257,12 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 	font-size:20px;
 	line-height:20px;
 }
-.p-5-style{
-	font-family:"PT Sans";
-	line-height:16px;
-}
 .h4-charles-style{
 	font-family:"PT Sans";
 }
 .h3--eventually-style{
 	font-family:"PT Sans";
 	font-size:20px;
-}
-.p-style{
-	width:100%;
-	font-size:14px;
-	line-height:7px;
-	letter-spacing:px;
 }
 .container-div-0-style{
 	height:20px;
@@ -310,25 +299,10 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 .row-8-style{
 	width:100%;
 }
-.p-2-style{
-	font-size:14px;
-	line-height:7px;
-}
-.p-6-style{
-	font-size:14px;
-	line-height:7px;
-}
-.p-8-style{
-	font-size:14px;
-	line-height:7px;
-}
-.p-10-style{
-	line-height:7px;
-	font-size:14px;
-}
 .p-12-style{
 	font-size:14px;
 	line-height:7px;
+	font-family:"PT Sans";
 }
 .link-style{
 	font-family:"PT Sans";
@@ -358,9 +332,6 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 }
 .tc-lavender-gray{
 	color:#BBCBCA!important;
-}
-.bgc-7946{
-	background-color:#FFFFFF;
 }
 
 /* Button colour styles */
@@ -500,15 +471,9 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 	.h3--eventually-style{
 		font-size:16px;
 	}
-	.p-style{
-		font-size:14px;
-	}
 	.h4-bloc-1-style{
 		font-size:20px;
 		line-height:20px;
-	}
-	.p-5-style{
-		line-height:24px;
 	}
 	.p-bloc-1-style{
 		font-size:16px;
