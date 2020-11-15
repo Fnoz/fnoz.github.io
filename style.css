@@ -310,9 +310,6 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 .row-8-style{
 	width:100%;
 }
-.container-div-bloc-2-style{
-	width:82.22%;
-}
 .p-2-style{
 	font-size:14px;
 	line-height:7px;
@@ -524,6 +521,12 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 	}
 	.h3-style{
 		font-size:24px;
+	}
+	.container-div-bloc-2-style{
+		height:20px;
+	}
+	.container-div-bloc-1-style{
+		height:20px;
 	}
 	
 }
