@@ -493,6 +493,10 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 	.container-div-bloc-1-style{
 		height:20px;
 	}
+	.p-12-style{
+		line-height:15px;
+		font-size:12px;
+	}
 	
 }
 
