@@ -312,6 +312,15 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 .h3-style{
 	font-family:"PT Sans";
 }
+.h4-bloc-3-style{
+	line-height:25px;
+}
+.h4-bloc-2-style{
+	line-height:25px;
+}
+.h4-bloc-1-style{
+	line-height:25px;
+}
 
 /* = Colour
 -------------------------------------------------------------- */
@@ -473,7 +482,7 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 	}
 	.h4-bloc-1-style{
 		font-size:20px;
-		line-height:20px;
+		line-height:25px;
 	}
 	.p-bloc-1-style{
 		font-size:16px;
