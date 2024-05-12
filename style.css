@@ -7,7 +7,7 @@
 body{
 	margin:0;
 	padding:0;
-    background:#FFFFFF;
+    background:#000000;
     overflow-x:hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -144,10 +144,6 @@ a:hover{text-decoration: none; cursor:pointer;}
 .mg-sm{
 	margin-top:10px;
 	margin-bottom:5px;
-}
-.mg-md{
-	margin-top:10px;
-	margin-bottom:20px;
 }
 
 /* = Buttons
@@ -354,12 +350,6 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 .h3--good-style{
 	font-size:20px;
 }
-.h4--good-style{
-	width:100%;
-	line-height:30px;
-	font-family:"PT Sans";
-	font-size:14px;
-}
 .row-style{
 	width:100%;
 }
@@ -435,6 +425,14 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 .p-5-style{
 	font-family:"PT Sans Narrow";
 	font-weight:700;
+}
+.label-style{
+	width:96.32%;
+}
+.label-bloc-2-style{
+	font-family:"PT Sans";
+	font-size:14px;
+	width:100%;
 }
 
 /* = Colour
@@ -623,9 +621,6 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 	}
 	.p-12-style{
 		line-height:15px;
-		font-size:12px;
-	}
-	.h4--good-style{
 		font-size:12px;
 	}
 	
