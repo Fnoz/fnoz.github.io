@@ -39,8 +39,8 @@ a:hover{text-decoration: none; cursor:pointer;}
 
 /* Sizes */
 
-.bloc-md{
-	padding:50px 20px;
+.bloc-lg{
+	padding:100px 20px;
 }
 .bloc-sm{
 	padding:20px;
@@ -141,6 +141,10 @@ a:hover{text-decoration: none; cursor:pointer;}
 /* = Bric adjustment margins
 -------------------------------------------------------------- */
 
+.mg-sm{
+	margin-top:10px;
+	margin-bottom:5px;
+}
 .mg-md{
 	margin-top:10px;
 	margin-bottom:20px;
@@ -161,13 +165,6 @@ button{
 
 
 
-/*  Rounded Image */
-.img-rd-md{
-	border-radius:20px;
-}
-.img-rd-lg{
-	border-radius:34px;
-}
 
 
 
@@ -186,6 +183,50 @@ button{
 
 
 
+/* = iPhone 11 & 12 Devices
+-------------------------------------------------------------- */
+
+.blocsapp-device-iphone11,.blocsapp-device-iphone12{
+	background-repeat:no-repeat;
+	background-size:contain;
+	background-position:center;
+	display: block;
+	width:100%;
+	height:auto;
+	padding: 9.6%;
+	position: relative;
+}
+.blocsapp-device-iphone11::after,.blocsapp-device-iphone12::after{
+	content:"";
+	position:absolute;
+	width:100%;
+	height:5%;
+	left:0;
+	top:5%;
+	margin-top:-0.5%;
+	background-repeat:no-repeat;
+	background-size:40%;
+	background-position:top center;
+	background-image:url("img/iphone-notch.png");
+}
+.blocsapp-device-iphone11 img,.blocsapp-device-iphone12 img{
+	width:100%;
+	height:auto;
+	margin: 0 auto;
+	border-radius:9%/4%;
+}
+.blocsapp-device-iphone11 .embed-responsive::before,.blocsapp-device-iphone12 .embed-responsive::before{
+	padding-top: 106.25%;
+}
+.blocsapp-device-iphone11 .embed-responsive,.blocsapp-device-iphone12 .embed-responsive{
+	padding-bottom: 90%;
+	width: 90.0%;
+	right: -5%;
+	border-radius: 2%/3%;
+}
+.blocsapp-device-iphone12.iphone12-black{
+	background-image:url("img/Apple-iPhone-12-Black.png");
+}
 
 /* Hide Object */
 .object-hidden{
@@ -220,9 +261,6 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 	font-family:"PT Sans";
 }
 .container-div-style{
-	height:50px;
-}
-.container-div-bloc-0-style{
 	height:50px;
 }
 .p-bloc-2-style{
@@ -350,6 +388,54 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 .h4-bloc-1-style{
 	line-height:25px;
 }
+.h4-feature-four-style{
+	font-family:"PT Sans Narrow";
+	font-weight:700;
+}
+.p-style{
+	font-family:"PT Sans Narrow";
+	font-weight:700;
+}
+.h4-onething-style{
+	font-family:"PT Sans Narrow";
+	font-weight:700;
+}
+.h4-colorcard-style{
+	font-family:"PT Sans Narrow";
+	font-weight:700;
+}
+.p-1-style{
+	font-family:"PT Sans Narrow";
+	font-weight:700;
+}
+.h4-progress-style{
+	font-family:"PT Sans Narrow";
+	font-weight:700;
+}
+.p-2-style{
+	font-family:"PT Sans Narrow";
+	font-weight:700;
+}
+.h4-feature-three-style{
+	font-family:"PT Sans Narrow";
+	font-weight:700;
+}
+.p-3-style{
+	font-family:"PT Sans Narrow";
+	font-weight:700;
+}
+.h4-feature-six-style{
+	font-family:"PT Sans Narrow";
+	font-weight:700;
+}
+.p-6-style{
+	font-family:"PT Sans Narrow";
+	font-weight:700;
+}
+.p-5-style{
+	font-family:"PT Sans Narrow";
+	font-weight:700;
+}
 
 /* = Colour
 -------------------------------------------------------------- */
@@ -363,10 +449,10 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 /* Text colour styles */
 
 .tc-white{
-	color:#FFFFFF!important;
+	color:rgba(255,255,255,0.80)!important;
 }
-.tc-lavender-gray{
-	color:#BBCBCA!important;
+.tc-white-2{
+	color:#FFFFFF!important;
 }
 
 /* Button colour styles */
@@ -377,14 +463,6 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 }
 .btn-black:hover{
 	background:#000000!important;
-	color:#FFFFFF!important;
-}
-.btn-ferrari-red{
-	background:#FF2600;
-	color:#FFFFFF!important;
-}
-.btn-ferrari-red:hover{
-	background:#cc1e00!important;
 	color:#FFFFFF!important;
 }
 
@@ -512,9 +590,6 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 @media (max-width: 575px){
 	.footer-link{
 		text-align:center;
-	}
-	.container-div-bloc-0-style{
-		height:80px;
 	}
 	.container-div-style{
 		height:145px;
