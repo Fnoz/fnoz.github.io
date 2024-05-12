@@ -1,8 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
-<loc>https://fnoz.cn</loc>
-<lastmod>2020-11-19</lastmod>
-<changefreq>Weekly</changefreq>
-<priority>1.0</priority>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url>
+	<loc>https://inii.tech</loc>
+	<lastmod>2024-05-12</lastmod>
+	<changefreq>Weekly</changefreq>
+	<priority>1.0</priority>
+	<image:image>
+	<image:loc>https://inii.tech/img/colorcard_preview.png</image:loc>
+	<image:title>colorcard_preview</image:title>
+	</image:image>
+	<image:image>
+	<image:loc>https://inii.tech/img/iframe_preview.png</image:loc>
+	<image:title>iframe_preview</image:title>
+	</image:image>
+	<image:image>
+	<image:loc>https://inii.tech/img/onething_preview.png</image:loc>
+	<image:title>onething_preview</image:title>
+	</image:image>
+	<image:image>
+	<image:loc>https://inii.tech/img/progress.png</image:loc>
+	<image:title>progress</image:title>
+	</image:image>
+	<image:image>
+	<image:loc>https://inii.tech/img/fontbook.png</image:loc>
+	<image:title>fontbook</image:title>
+	</image:image>
+	<image:image>
+	<image:loc>https://inii.tech/img/jing.png</image:loc>
+	<image:title>jing</image:title>
+	</image:image>
+	<image:image>
+	<image:loc>https://inii.tech/img/jingwall.png</image:loc>
+	<image:title>jingwall</image:title>
+	</image:image>
+	<image:image>
+	<image:loc>https://inii.tech/img/ipip.png</image:loc>
+	<image:title>ipip</image:title>
+	</image:image>
+	<image:image>
+	<image:loc>https://inii.tech/img/colr.png</image:loc>
+	<image:title>colr</image:title>
+	</image:image>
+	<image:image>
+	<image:loc>https://inii.tech/img/today.png</image:loc>
+	<image:title>today</image:title>
+	</image:image>
+	<image:image>
+	<image:loc>https://inii.tech/img/</image:loc>
+	<image:title>Twitter Social Card Image</image:title>
+	</image:image>
+	<image:image>
+	<image:loc>https://inii.tech/img/</image:loc>
+	<image:title>Facebook Social Card Image</image:title>
+	</image:image>
 </url>
 </urlset>
