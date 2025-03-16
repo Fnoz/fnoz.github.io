@@ -8,25 +8,25 @@ const features = [
     name: 'ColorCard',
     description: 'Palette tool for designers.',
     icon: <Image src="/colorcard.png" alt="ColorCard" width={48} height={48} className="object-contain rounded-xl" />,
-    color: 'bg-[#1B4B8C]',
-  },
-  {
-    name: 'iFrame',
-    description: 'Add Frames to iPhone screenshots.',
-    icon: <Image src="/iframe.png" alt="iFrame" width={48} height={48} className="object-contain rounded-xl" />,
     color: 'bg-[#C1D82F]',
   },
   {
     name: 'Progress',
-    description: 'Manage Your Task Progress.',
+    description: 'Manage your task progress.',
     icon: <Image src="/progress.png" alt="Progress" width={48} height={48} className="object-contain rounded-xl" />,
     color: 'bg-[#87CEEB]',
+  },
+  {
+    name: 'iFrame',
+    description: 'Add frames to screenshots.',
+    icon: <Image src="/iframe.png" alt="iFrame" width={48} height={48} className="object-contain rounded-xl" />,
+    color: 'bg-[#FFD700]',
   },
   {
     name: 'Menu AI',
     description: 'Ask AI in menu bar.',
     icon: <Image src="/menuai.png" alt="Menu AI" width={48} height={48} className="object-contain rounded-xl" />,
-    color: 'bg-[#FFD700]',
+    color: 'bg-[#1B4B8C]',
   },
 ];
 
