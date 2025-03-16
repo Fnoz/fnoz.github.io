@@ -5,8 +5,8 @@ import { motion } from 'framer-motion';
 export default function About() {
   return (
     <section id="about" className="relative isolate overflow-hidden bg-white py-24 sm:py-32">
-      <div className="absolute inset-0 -z-10 bg-purple-50 opacity-20" />
-      <div className="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white shadow-xl shadow-purple-600/10 ring-1 ring-purple-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
+      <div className="absolute inset-0 -z-10 bg-gray-50 opacity-20" />
+      <div className="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white shadow-xl shadow-gray-200/10 ring-1 ring-gray-200 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
       <div className="mx-auto max-w-2xl lg:max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -28,9 +28,9 @@ export default function About() {
           className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 text-center lg:max-w-none lg:grid-cols-3"
         >
           <div className="flex flex-col items-center">
-            <div className="rounded-lg bg-purple-600/10 p-2 ring-1 ring-purple-600/20">
+            <div className="rounded-lg bg-gray-100 p-2 ring-1 ring-gray-200">
               <svg
-                className="h-6 w-6 text-purple-600"
+                className="h-6 w-6 text-gray-900"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
@@ -49,9 +49,9 @@ export default function About() {
             </p>
           </div>
           <div className="flex flex-col items-center">
-            <div className="rounded-lg bg-purple-600/10 p-2 ring-1 ring-purple-600/20">
+            <div className="rounded-lg bg-gray-100 p-2 ring-1 ring-gray-200">
               <svg
-                className="h-6 w-6 text-purple-600"
+                className="h-6 w-6 text-gray-900"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
@@ -70,9 +70,9 @@ export default function About() {
             </p>
           </div>
           <div className="flex flex-col items-center">
-            <div className="rounded-lg bg-purple-600/10 p-2 ring-1 ring-purple-600/20">
+            <div className="rounded-lg bg-gray-100 p-2 ring-1 ring-gray-200">
               <svg
-                className="h-6 w-6 text-purple-600"
+                className="h-6 w-6 text-gray-900"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"

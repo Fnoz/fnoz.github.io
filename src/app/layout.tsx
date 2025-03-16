@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Ubuntu } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const ubuntu = Ubuntu({ 
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '700'],
+  style: ['normal', 'italic']
+});
 
 export const metadata: Metadata = {
   title: "INII - Innovative Technology, Better Life",
@@ -16,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={inter.className}>{children}</body>
+      <body className={`${ubuntu.className} ubuntu-regular`}>{children}</body>
     </html>
   );
 }

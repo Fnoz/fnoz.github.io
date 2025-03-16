@@ -93,7 +93,7 @@ export default function AppShowcase() {
                 <p className="mt-2 text-base leading-7 text-gray-600">{app.description}</p>
                 <a
                   href={app.link}
-                  className="mt-4 inline-block text-purple-600 hover:text-purple-500"
+                  className="mt-4 inline-block text-black hover:text-gray-900"
                 >
                   Learn more →
                 </a>
@@ -145,7 +145,7 @@ export default function AppShowcase() {
                 <p className="mt-2 text-base leading-7 text-gray-600">{app.description}</p>
                 <a
                   href={app.link}
-                  className="mt-4 inline-block text-purple-600 hover:text-purple-500"
+                  className="mt-4 inline-block text-black hover:text-gray-900"
                 >
                   Learn more →
                 </a>
