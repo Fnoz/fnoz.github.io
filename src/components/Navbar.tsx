@@ -34,9 +34,9 @@ export default function Navbar() {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             href="mailto:fnoz@inii.tech"
-            className="rounded-full bg-[#262450] px-5 py-2.5 text-sm ubuntu-medium text-white shadow-sm hover:bg-[#363561] transition-colors"
+            className="text-sm font-semibold leading-6 text-[#262450] hover:text-[#363561]"
           >
-            Contact Us
+            Email Us
           </motion.a>
         </div>
       </nav>
