@@ -24,7 +24,7 @@ export default function Navbar() {
               />
             </div>
             <span className="text-2xl ubuntu-bold text-[#262450]">
-              INII
+              I<span className="text-[#FE6160]">N</span>II
             </span>
           </Link>
         </div>

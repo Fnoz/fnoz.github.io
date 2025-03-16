@@ -9,8 +9,15 @@ const ubuntu = Ubuntu({
 });
 
 export const metadata: Metadata = {
-  title: "INII - Innovative Technology, Better Life",
+  title: "INII.tech",
   description: "INII is a technology company dedicated to developing high-quality iOS and macOS applications, including ColorCard, iFrame, Progress, and Menu AI.",
+  icons: [
+    {
+      rel: 'icon',
+      url: '/icon.png',
+    },
+  ],
+  manifest: '/manifest.json'
 };
 
 export default function RootLayout({
