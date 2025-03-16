@@ -48,14 +48,14 @@ const features = [
 export default function Hero() {
   return (
     <div className="relative isolate bg-white pt-24">
-      <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
+      <div className="mx-auto max-w-7xl px-6 py-12 sm:py-16 lg:px-8">
         <div className="mx-auto max-w-4xl text-center mb-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl ubuntu-bold tracking-tight text-[#262450] sm:text-6xl">
+            <h1 className="text-3xl ubuntu-bold tracking-tight text-[#262450] sm:text-5xl">
               Many different types of projects
               <br />
               reduce or eliminate carbon
