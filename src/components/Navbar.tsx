@@ -23,8 +23,8 @@ export default function Navbar() {
                 className="object-contain"
               />
             </div>
-            <span className="text-2xl ubuntu-bold text-[#262450]">
-              I<span className="text-[#FE6160]">N</span>II
+            <span className="text-2xl ubuntu-bold text-[#120652]">
+              I<span className="text-[#FFAC3C]">N</span>II
             </span>
           </Link>
         </div>
@@ -34,9 +34,9 @@ export default function Navbar() {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             href="mailto:fnoz@inii.tech"
-            className="text-sm font-semibold leading-6 text-[#262450] hover:text-[#363561]"
+            className="text-sm font-semibold leading-6 text-[#120652] hover:text-[#363561]"
           >
-            Email Us
+            Email <span className="text-[#FFAC3C]">Us</span>
           </motion.a>
         </div>
       </nav>

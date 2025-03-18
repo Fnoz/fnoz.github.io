@@ -11,15 +11,15 @@ const features = [
     color: 'bg-[#C1D82F]',
   },
   {
-    name: 'Progress',
-    description: 'Manage your task progress.',
-    icon: <Image src="/progress.png" alt="Progress" width={48} height={48} className="object-contain rounded-xl" />,
-    color: 'bg-[#87CEEB]',
-  },
-  {
     name: 'iFrame',
     description: 'Add frames to screenshots.',
     icon: <Image src="/iframe.png" alt="iFrame" width={48} height={48} className="object-contain rounded-xl" />,
+    color: 'bg-[#87CEEB]',
+  },
+  {
+    name: 'Progress',
+    description: 'Manage your task progress.',
+    icon: <Image src="/progress.png" alt="Progress" width={48} height={48} className="object-contain rounded-xl" />,
     color: 'bg-[#FFD700]',
   },
   {
@@ -40,10 +40,10 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-2xl ubuntu-bold tracking-tight text-[#262450] sm:text-4xl">
-              Create to Innovate:
+            <h1 className="text-2xl ubuntu-bold tracking-tight text-[#120652] sm:text-4xl">
+              Create <span className="text-[#FFAC3C]">to</span> Innovate:
               <br />
-              <span className="text-[#FE6160]">〰〰〰〰</span>
+              <span className="text-[#FFAC3C]">〰〰〰〰</span>
               <br />
               AI, Health, Efficiency.
             </h1>

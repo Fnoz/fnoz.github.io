@@ -11,15 +11,15 @@ const iosApps = [
     link: '#',
   },
   {
-    name: 'iFrame',
-    description: 'Professional photo enhancement tool for stunning visuals',
-    image: '/iframe.png',
-    link: '#',
-  },
-  {
     name: 'Progress',
     description: 'Clean and simple progress tracking for clear goal achievement',
     image: '/progress.png',
+    link: '#',
+  },
+  {
+    name: 'iFrame',
+    description: 'Professional photo enhancement tool for stunning visuals',
+    image: '/iframe.png',
     link: '#',
   },
 ];
