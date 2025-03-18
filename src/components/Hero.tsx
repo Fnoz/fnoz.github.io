@@ -9,24 +9,28 @@ const features = [
     description: 'Palette tool for designers.',
     icon: <Image src="/colorcard.png" alt="ColorCard" width={48} height={48} className="object-contain rounded-xl" />,
     color: 'bg-[#C1D82F]',
+    link: 'https://apps.apple.com/us/app/id1207354572',
   },
   {
     name: 'iFrame',
     description: 'Add frames to screenshots.',
     icon: <Image src="/iframe.png" alt="iFrame" width={48} height={48} className="object-contain rounded-xl" />,
     color: 'bg-[#87CEEB]',
+    link: 'https://apps.apple.com/us/app/id1209610705',
   },
   {
     name: 'Progress',
     description: 'Manage your task progress.',
     icon: <Image src="/progress.png" alt="Progress" width={48} height={48} className="object-contain rounded-xl" />,
     color: 'bg-[#FFD700]',
+    link: 'https://apps.apple.com/us/app/id1460584174',
   },
   {
     name: 'Menu AI',
     description: 'Ask AI in menu bar.',
     icon: <Image src="/menuai.png" alt="Menu AI" width={48} height={48} className="object-contain rounded-xl" />,
     color: 'bg-[#1B4B8C]',
+    link: 'https://apps.apple.com/us/app/id6740474816',
   },
 ];
 
@@ -61,10 +65,11 @@ export default function Hero() {
               <motion.div
                 key={feature.name}
                 whileHover={{ y: -8 }}
-                className={`rounded-3xl ${feature.color} px-8 py-10`}
+                className={`rounded-3xl ${feature.color} px-8 py-10 cursor-pointer`}
                 style={{
                   color: feature.color === 'bg-[#C1D82F]' || feature.color === 'bg-[#FFD700]' ? '#1E1B4B' : 'white'
                 }}
+                onClick={() => window.open(feature.link, '_blank')}
               >
                 <div className="flex flex-col items-center gap-y-3">
                   <div className="w-12 h-12">
