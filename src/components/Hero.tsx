@@ -45,7 +45,7 @@ export default function Hero() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-2xl ubuntu-bold tracking-tight text-[#120652] sm:text-4xl">
-              Create <span className="text-[#FFAC3C]">to</span> Innovate:
+              Create <span className="text-[#FFAC3C]">to</span> Innovate1:
               <br />
               <span className="text-[#FFAC3C]">〰〰〰〰</span>
               <br />
