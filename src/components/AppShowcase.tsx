@@ -9,7 +9,7 @@ const testimonials = [
     author: "Emily Parker",
     role: "UI Designer",
     app: "ColorCard",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=faces"
+    avatar: "/avatar/emily.jpg"
   },
   {
     content: "As a developer, Progress helps me track project milestones with its clean and straightforward interface.",
@@ -22,7 +22,7 @@ const testimonials = [
     author: "Sofia Rodriguez",
     role: "Product Manager",
     app: "iFrame",
-    avatar: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=100&h=100&fit=crop&crop=faces"
+    avatar: "/avatar/sofia.jpg"
   },
   {
     content: "Menu AI boosts my productivity with its convenient menu bar AI features.",
@@ -35,7 +35,7 @@ const testimonials = [
     author: "Isabella Martinez",
     role: "Graphic Designer",
     app: "ColorCard",
-    avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop&crop=faces"
+    avatar: "/avatar/isabella.jpg"
   },
   {
     content: "The widget feature in Progress is fantastic! I can track my goals right from my home screen.",
@@ -48,7 +48,7 @@ const testimonials = [
     author: "Mia Johnson",
     role: "Content Creator",
     app: "iFrame",
-    avatar: "https://images.unsplash.com/photo-1502767882403-636aee14f873?w=100&h=100&fit=crop&crop=faces"
+    avatar: "/avatar/mia.jpg"
   },
   {
     content: "Menu AI's natural language interaction is superb. It's become an essential tool in my workflow.",
@@ -61,7 +61,7 @@ const testimonials = [
     author: "Rachel Chen",
     role: "Art Director",
     app: "ColorCard",
-    avatar: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=100&h=100&fit=crop&crop=faces"
+    avatar: "/avatar/rachel.jpg"
   }
 ];
 
