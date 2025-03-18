@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 const testimonials = [
   {
@@ -51,13 +52,13 @@ const testimonials = [
     avatar: "/avatar/mia.jpg"
   },
   {
-    content: "Menu AI's natural language interaction is superb. It's become an essential tool in my workflow.",
+    content: "Menu AI&apos;s natural language interaction is superb. It&apos;s become an essential tool in my workflow.",
     author: "Lucas Bennett",
     role: "Tech Writer",
     app: "Menu AI"
   },
   {
-    content: "ColorCard's export options are perfect for my design team collaboration. We use it every day!",
+    content: "ColorCard&apos;s export options are perfect for my design team collaboration. We use it every day!",
     author: "Rachel Chen",
     role: "Art Director",
     app: "ColorCard",
@@ -124,10 +125,12 @@ export default function AppShowcase() {
                   <span className="absolute text-6xl text-[#FFAC3C] opacity-20 right-4 bottom-16 rotate-180">"</span>
                   <div className="mt-6 flex items-center gap-3">
                     {testimonial.avatar ? (
-                      <img
+                      <Image
                         src={testimonial.avatar}
                         alt={testimonial.author}
-                        className="h-10 w-10 rounded-full object-cover"
+                        width={40}
+                        height={40}
+                        className="rounded-full object-cover"
                       />
                     ) : (
                       <div className="h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center">
