@@ -1,8 +1,5 @@
 import type { NextConfig } from "next";
 
-const isProduction = process.env.NODE_ENV === 'production';
-const basePath = isProduction ? '/inii.tech' : '';
-
 const nextConfig: NextConfig = {
   output: 'export',
   eslint: {
@@ -11,8 +8,8 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath,
-  assetPrefix: basePath,
+  basePath: '/inii.tech',
+  assetPrefix: '/inii.tech/',
   trailingSlash: true,
   // Fix asset paths
   async rewrites() {
