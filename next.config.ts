@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   basePath: '/inii.tech',
-  assetPrefix: '/inii.tech',
+  assetPrefix: '/inii.tech/',
   trailingSlash: true,
   // Fix asset paths
   async rewrites() {
