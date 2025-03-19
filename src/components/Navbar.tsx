@@ -8,7 +8,6 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const basePath = process.env.NODE_ENV === 'production' ? '/inii.tech' : '';
 
   return (
     <header className="fixed w-full z-50 bg-white">
@@ -17,7 +16,7 @@ export default function Navbar() {
           <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-2">
             <div className="relative w-16 h-16">
               <Image
-                src={`${basePath}/logo.png`}
+                src="/logo.png"
                 alt="INII Logo"
                 width={64}
                 height={64}

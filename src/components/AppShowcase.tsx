@@ -3,15 +3,13 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
-const basePath = process.env.NODE_ENV === 'production' ? '/inii.tech' : '';
-
 const testimonials = [
   {
     content: "ColorCard has transformed my design workflow with its intuitive color scheme management.",
     author: "Emily Parker",
     role: "UI Designer",
     app: "ColorCard",
-    avatar: `${basePath}/avatar/emily.jpg`
+    avatar: "/avatar/emily.jpg"
   },
   {
     content: "As a developer, Progress helps me track project milestones with its clean and straightforward interface.",
@@ -24,7 +22,7 @@ const testimonials = [
     author: "Sofia Rodriguez",
     role: "Product Manager",
     app: "iFrame",
-    avatar: `${basePath}/avatar/sofia.jpg`
+    avatar: "/avatar/sofia.jpg"
   },
   {
     content: "Menu AI boosts my productivity with its convenient menu bar AI features.",
@@ -37,7 +35,7 @@ const testimonials = [
     author: "Isabella Martinez",
     role: "Graphic Designer",
     app: "ColorCard",
-    avatar: `${basePath}/avatar/isabella.jpg`
+    avatar: "/avatar/isabella.jpg"
   },
   {
     content: "The widget feature in Progress is fantastic! I can track my goals right from my home screen.",
@@ -50,7 +48,7 @@ const testimonials = [
     author: "Mia Johnson",
     role: "Content Creator",
     app: "iFrame",
-    avatar: `${basePath}/avatar/mia.jpg`
+    avatar: "/avatar/mia.jpg"
   },
   {
     content: "Menu AI's natural language interaction is superb. It's become an essential tool in my workflow.",
@@ -63,7 +61,7 @@ const testimonials = [
     author: "Rachel Chen",
     role: "Art Director",
     app: "ColorCard",
-    avatar: `${basePath}/avatar/rachel.jpg`
+    avatar: "/avatar/rachel.jpg"
   }
 ];
 
