@@ -8,11 +8,10 @@
       "client": {
         "use": "@cloudbase/framework-plugin-website",
         "inputs": {
-          "buildCommand": "npm run build && npx next export",
+          "buildCommand": "source ~/.nvm/nvm.sh && nvm install 18.17.0 && nvm use 18.17.0 && npm run build && npx next export",
           "outputPath": "out",
-          "installCommand": "npm install",
-          "httpPath": "/",
-          "nodeVersion": "18.17.0"
+          "installCommand": "source ~/.nvm/nvm.sh && nvm install 18.17.0 && nvm use 18.17.0 && npm install",
+          "httpPath": "/"
         }
       }
     }
