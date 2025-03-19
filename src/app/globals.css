@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 @font-face {
   font-family: 'Ubuntu';
@@ -94,6 +92,10 @@ body {
   color: var(--foreground);
   font-family: "Ubuntu", Arial, sans-serif;
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 .ubuntu-light {
   font-family: "Ubuntu", sans-serif;
