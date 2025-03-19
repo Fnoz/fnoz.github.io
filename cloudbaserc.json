@@ -8,9 +8,9 @@
       "client": {
         "use": "@cloudbase/framework-plugin-website",
         "inputs": {
-          "buildCommand": "npm install -g @volta-cli/action-volta-node && volta-node setup 18.17.0 && npm run build && npx next export",
+          "buildCommand": "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash && export NVM_DIR=\"$HOME/.nvm\" && [ -s \"$NVM_DIR/nvm.sh\" ] && \\. \"$NVM_DIR/nvm.sh\" && nvm install 18.17.0 && nvm use 18.17.0 && npm run build && npx next export",
           "outputPath": "out",
-          "installCommand": "npm install -g @volta-cli/action-volta-node && volta-node setup 18.17.0 && npm install",
+          "installCommand": "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash && export NVM_DIR=\"$HOME/.nvm\" && [ -s \"$NVM_DIR/nvm.sh\" ] && \\. \"$NVM_DIR/nvm.sh\" && nvm install 18.17.0 && nvm use 18.17.0 && npm install",
           "httpPath": "/"
         }
       }
