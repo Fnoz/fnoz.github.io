@@ -8,9 +8,9 @@
       "client": {
         "use": "@cloudbase/framework-plugin-website",
         "inputs": {
-          "buildCommand": "npm install -g n && n 18.17.0 && ln -sf /usr/local/n/versions/node/18.17.0/bin/node /usr/local/bin/node && ln -sf /usr/local/n/versions/node/18.17.0/bin/npm /usr/local/bin/npm && hash -r && npm run build && npx next export",
+          "buildCommand": "npm install -g n && n 18.17.0 && hash -r && npm run build && npx next export",
           "outputPath": "out",
-          "installCommand": "npm install -g n && n 18.17.0 && ln -sf /usr/local/n/versions/node/18.17.0/bin/node /usr/local/bin/node && ln -sf /usr/local/n/versions/node/18.17.0/bin/npm /usr/local/bin/npm && hash -r && npm install",
+          "installCommand": "npm install -g n && n 18.17.0 && hash -r && npm install",
           "httpPath": "/"
         }
       }
