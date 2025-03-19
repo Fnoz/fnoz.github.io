@@ -8,9 +8,8 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: process.env.NODE_ENV === 'production' ? '/inii.tech' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/inii.tech' : '',
-  trailingSlash: true,
+  basePath: '/inii.tech',
+  assetPrefix: '/inii.tech',
   /* config options here */
 };
 
