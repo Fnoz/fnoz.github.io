@@ -249,8 +249,10 @@ body {
   justify-content: center;
   align-items: center;
   height: 180px;
+  width: 240px;
+  margin: 0 auto;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  padding: 1.5rem 1.25rem;
+  padding: 1.5rem 1rem;
   text-align: center;
 }
 
@@ -267,14 +269,22 @@ body {
   align-items: center;
   justify-content: center;
   height: 100%;
+  gap: 0.35rem;
 }
 
 .feature-card .card-icon {
   margin-bottom: 0.75rem;
+  width: 60px;
+  height: 60px;
+  object-fit: none;
 }
 
 .feature-card .card-title {
-  margin-bottom: 0.35rem;
+  margin-bottom: 0;
+}
+
+.feature-card p.mt-1 {
+  margin-top: 0;
 }
 
 /* Animation classes */
@@ -282,6 +292,7 @@ body {
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.8s forwards;
+  margin-bottom: 7rem;
 }
 
 .hero-features {
@@ -338,7 +349,14 @@ body {
 @media (min-width: 640px) { /* sm */
   .sm\:text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
   .sm\:py-16 { padding-top: 4rem; padding-bottom: 4rem; }
-  .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sm\:grid-cols-2 { 
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3.5rem;
+  }
+  
+  .feature-card {
+    width: 220px;
+  }
 }
 
 @media (min-width: 1024px) { /* lg */
@@ -347,7 +365,14 @@ body {
   .lg\:justify-end { justify-content: flex-end; }
   .lg\:mx-0 { margin-left: 0; margin-right: 0; }
   .lg\:max-w-none { max-width: none; }
-  .lg\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .lg\:grid-cols-4 { 
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 4rem;
+  }
+  
+  .feature-card {
+    width: 200px;
+  }
 }
 
 /* Email hover animation */

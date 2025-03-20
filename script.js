@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
     card.innerHTML = `
       <div class="card-content">
         <div class="card-icon w-10 h-10">
-          <img src="${feature.icon}" alt="${feature.name}" width="40" height="40" class="object-contain rounded-xl" />
+          <img src="${feature.icon}" alt="${feature.name}" width="60" height="60" class="object-contain rounded-2xl" />
         </div>
         <h3 class="card-title text-lg ubuntu-medium leading-8">${feature.name}</h3>
         <p class="mt-1 text-sm ubuntu-light leading-6 opacity-90">${feature.description}</p>
