@@ -302,7 +302,7 @@ body {
   position: relative;
   width: 100%;
   overflow: hidden;
-  padding: 0.5rem;
+  padding: 0 0.5rem;
   box-sizing: border-box;
   min-height: 260px;
 }
@@ -498,7 +498,7 @@ body {
 /* 移动端样式调整 */
 @media (max-width: 767px) {
   .testimonials-container {
-    padding: 0.25rem;
+    padding: 0 0.25rem;
     min-height: 220px;
   }
   
@@ -525,7 +525,7 @@ body {
 /* 平板样式调整 */
 @media (min-width: 768px) and (max-width: 1023px) {
   .testimonials-container {
-    padding: 0.5rem;
+    padding: 0 0.5rem;
     min-height: 240px;
   }
   
