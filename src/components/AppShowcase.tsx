@@ -2,7 +2,6 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 
 const testimonials = [
   {
@@ -118,19 +117,17 @@ export default function AppShowcase() {
                   key={index}
                   className="flex-none w-[360px] bg-transparent p-6 rounded-2xl border-2 border-gray-100 relative"
                 >
-                  <span className="absolute text-6xl text-[#FFAC3C] opacity-20 left-4 top-2">&ldquo;</span>
+                  <span className="absolute text-6xl text-[#FFAC3C] opacity-20 left-4 top-2">"</span>
                   <p className="text-gray-600 text-base leading-relaxed h-[96px] overflow-hidden font-semibold italic">
                     {highlightAppNames(testimonial.content)}
                   </p>
-                  <span className="absolute text-6xl text-[#FFAC3C] opacity-20 right-4 bottom-16 rotate-180">&rdquo;</span>
+                  <span className="absolute text-6xl text-[#FFAC3C] opacity-20 right-4 bottom-16 rotate-180">"</span>
                   <div className="mt-6 flex items-center gap-3">
                     {testimonial.avatar ? (
-                      <Image
+                      <img
                         src={testimonial.avatar}
                         alt={testimonial.author}
-                        width={40}
-                        height={40}
-                        className="rounded-full object-cover"
+                        className="h-10 w-10 rounded-full object-cover"
                       />
                     ) : (
                       <div className="h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center">
