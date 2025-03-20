@@ -107,36 +107,102 @@ document.addEventListener('DOMContentLoaded', function() {
   
   features.forEach(feature => {
     const card = document.createElement('div');
-    card.className = `feature-card rounded-3xl ${feature.color} px-8 py-10 cursor-pointer ${feature.textClass}`;
+    card.className = `feature-card rounded-3xl ${feature.color} px-6 py-8 cursor-pointer ${feature.textClass}`;
     card.style.color = feature.textColor;
     card.addEventListener('click', () => window.open(feature.link, '_blank'));
     
     card.innerHTML = `
       <div class="card-content">
-        <div class="card-icon w-12 h-12">
-          <img src="${feature.icon}" alt="${feature.name}" width="48" height="48" class="object-contain rounded-xl" />
+        <div class="card-icon w-10 h-10">
+          <img src="${feature.icon}" alt="${feature.name}" width="40" height="40" class="object-contain rounded-xl" />
         </div>
         <h3 class="card-title text-lg ubuntu-medium leading-8">${feature.name}</h3>
-        <p class="mt-2 text-sm ubuntu-light leading-6 opacity-90">${feature.description}</p>
+        <p class="mt-1 text-sm ubuntu-light leading-6 opacity-90">${feature.description}</p>
       </div>
     `;
     
     featureCardsContainer.appendChild(card);
   });
 
-  // Split testimonials into pages of 3 items each
-  const itemsPerPage = 3;
-  const testimonialPages = [];
-  
-  for (let i = 0; i < testimonials.length; i += itemsPerPage) {
-    testimonialPages.push(testimonials.slice(i, i + itemsPerPage));
+  // 根据设备宽度确定每页显示的项目数
+  function getItemsPerPage() {
+    if (window.innerWidth < 768) { // 移动端
+      return 1;
+    } else if (window.innerWidth < 1024) { // iPad
+      return 2;
+    } else { // 桌面
+      return 3;
+    }
   }
 
-  // Create testimonial slides
-  const testimonialsContainer = document.querySelector('.testimonials-container');
-  const paginationContainer = document.querySelector('.testimonials-pagination');
-  let currentPage = 0;
+  // 初始化每页项目数
+  let itemsPerPage = getItemsPerPage();
   
+  // 分页逻辑函数
+  function paginateTestimonials() {
+    // 更新每页项目数
+    itemsPerPage = getItemsPerPage();
+    
+    // 清空现有内容
+    const testimonialsContainer = document.querySelector('.testimonials-container');
+    const paginationContainer = document.querySelector('.testimonials-pagination');
+    testimonialsContainer.innerHTML = '';
+    paginationContainer.innerHTML = '';
+    
+    // 重新分页 - 将testimonials分成多个页面，但每个页面显示固定数量的项目
+    const pageCount = Math.ceil(testimonials.length / itemsPerPage);
+    const testimonialPages = [];
+    
+    for (let i = 0; i < pageCount; i++) {
+      // 每个页面显示的项目从全部testimonials中截取相应的部分
+      testimonialPages.push(testimonials.slice(i * itemsPerPage, Math.min((i + 1) * itemsPerPage, testimonials.length)));
+    }
+    
+    // 创建轮播项
+    testimonialPages.forEach((page, pageIndex) => {
+      const slide = document.createElement('div');
+      slide.className = `testimonial-slide ${pageIndex === 0 ? 'active' : ''}`;
+      slide.id = `slide-${pageIndex}`;
+      
+      page.forEach(testimonial => {
+        const card = document.createElement('div');
+        card.className = 'flex-none testimonial-card';
+        
+        card.innerHTML = `
+          <div class="quote-mark top">"</div>
+          <div class="testimonial-content text-gray-600 text-base">
+            ${highlightAppNames(testimonial.content)}
+          </div>
+          <div class="quote-mark bottom">"</div>
+          <div class="testimonial-author">
+            ${testimonial.avatar 
+              ? `<img src="${testimonial.avatar}" alt="${testimonial.author}" class="h-10 w-10 rounded-full object-cover">`
+              : `<div class="avatar-placeholder">
+                  <span class="text-xl font-semibold text-gray-500">${testimonial.author[0]}</span>
+                 </div>`
+            }
+            <div class="testimonial-author-info">
+              <p class="testimonial-author-name">${testimonial.author}</p>
+              <p class="testimonial-author-role">${testimonial.role}</p>
+            </div>
+          </div>
+        `;
+        
+        slide.appendChild(card);
+      });
+      
+      testimonialsContainer.appendChild(slide);
+      
+      // 创建分页指示器
+      const dot = document.createElement('button');
+      dot.className = `rounded-full ${pageIndex === 0 ? 'bg-[#FFAC3C] bg-accent active' : 'bg-gray-300'}`;
+      dot.addEventListener('click', () => goToSlide(pageIndex));
+      paginationContainer.appendChild(dot);
+    });
+    
+    return testimonialPages;
+  }
+
   // Helper function to highlight app names
   function highlightAppNames(content) {
     const appNames = ["ColorCard", "iFrame", "Progress", "Menu AI"];
@@ -152,81 +218,81 @@ document.addEventListener('DOMContentLoaded', function() {
     return highlightedContent;
   }
 
-  // Create testimonial slides
-  testimonialPages.forEach((page, pageIndex) => {
-    const slide = document.createElement('div');
-    slide.className = `testimonial-slide ${pageIndex === 0 ? 'active' : ''}`;
-    slide.id = `slide-${pageIndex}`;
+  // 初始化轮播
+  let testimonialPages = paginateTestimonials();
+  let currentPage = 0;
+
+  // 监听窗口大小变化，重新分页
+  window.addEventListener('resize', function() {
+    const oldItemsPerPage = itemsPerPage;
+    const newItemsPerPage = getItemsPerPage();
     
-    page.forEach(testimonial => {
-      const card = document.createElement('div');
-      card.className = 'flex-none w-[360px] testimonial-card';
-      
-      card.innerHTML = `
-        <div class="quote-mark top">"</div>
-        <div class="testimonial-content text-gray-600 text-base">
-          ${highlightAppNames(testimonial.content)}
-        </div>
-        <div class="quote-mark bottom">"</div>
-        <div class="testimonial-author">
-          ${testimonial.avatar 
-            ? `<img src="${testimonial.avatar}" alt="${testimonial.author}" class="h-10 w-10 rounded-full object-cover">`
-            : `<div class="h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center">
-                <span class="text-xl font-semibold text-gray-500">${testimonial.author[0]}</span>
-               </div>`
-          }
-          <div>
-            <p class="font-semibold text-gray-900">${testimonial.author}</p>
-            <p class="text-xs text-gray-500">${testimonial.role}</p>
-          </div>
-        </div>
-      `;
-      
-      slide.appendChild(card);
-    });
-    
-    testimonialsContainer.appendChild(slide);
-    
-    // Create pagination dots
-    const dot = document.createElement('button');
-    dot.className = `rounded-full ${pageIndex === 0 ? 'bg-[#FFAC3C] bg-accent active' : 'bg-gray-300'}`;
-    dot.addEventListener('click', () => goToSlide(pageIndex));
-    paginationContainer.appendChild(dot);
+    if (oldItemsPerPage !== newItemsPerPage) {
+      testimonialPages = paginateTestimonials();
+      currentPage = 0; // 重置到第一页
+    }
   });
 
   // Function to go to a specific slide
   function goToSlide(index) {
-    // Remove active class from current slide and add prev class
+    // 获取分页容器
+    const paginationContainer = document.querySelector('.testimonials-pagination');
+    
+    // 如果目标索引与当前页相同，不执行任何操作
+    if (index === currentPage) return;
+    
+    // 获取当前活动的幻灯片
     const currentSlide = document.querySelector(`.testimonial-slide.active`);
-    if (currentSlide) {
-      currentSlide.classList.remove('active');
+    
+    // 获取目标幻灯片
+    const targetSlide = document.getElementById(`slide-${index}`);
+    
+    if (!currentSlide || !targetSlide) return;
+    
+    // 设置过渡方向
+    const direction = index > currentPage ? 'next' : 'prev';
+    
+    // 根据方向设置初始位置
+    if (direction === 'next') {
+      targetSlide.style.transform = 'translateX(100px)';
       currentSlide.classList.add('prev');
-      
-      // Remove prev class after animation completes
-      setTimeout(() => {
-        currentSlide.classList.remove('prev');
-      }, 500);
+    } else {
+      targetSlide.style.transform = 'translateX(-100px)';
+      currentSlide.style.transform = 'translateX(100px)';
     }
     
-    // Update pagination dots
-    const dots = paginationContainer.querySelectorAll('button');
-    dots.forEach((dot, i) => {
-      if (i === index) {
-        dot.className = 'rounded-full bg-[#FFAC3C] bg-accent active';
-      } else {
-        dot.className = 'rounded-full bg-gray-300';
-      }
+    // 延迟一帧以确保初始状态被应用
+    requestAnimationFrame(() => {
+      // 移除当前幻灯片的active类
+      currentSlide.classList.remove('active');
+      
+      // 添加目标幻灯片的active类并重置变换
+      targetSlide.classList.add('active');
+      targetSlide.style.transform = '';
+      
+      // 更新分页指示器
+      const dots = paginationContainer.querySelectorAll('button');
+      dots.forEach((dot, i) => {
+        if (i === index) {
+          dot.className = 'rounded-full bg-[#FFAC3C] bg-accent active';
+        } else {
+          dot.className = 'rounded-full bg-gray-300';
+        }
+      });
+      
+      // 清理：500ms后移除prev类
+      setTimeout(() => {
+        currentSlide.classList.remove('prev');
+        currentSlide.style.transform = '';
+      }, 500);
+      
+      // 更新当前页
+      currentPage = index;
     });
-    
-    // Activate new slide
-    const newSlide = document.getElementById(`slide-${index}`);
-    newSlide.classList.add('active');
-    
-    currentPage = index;
   }
 
   // Auto-rotate testimonials
   setInterval(() => {
     goToSlide((currentPage + 1) % testimonialPages.length);
   }, 5000);
-}); 
+});
